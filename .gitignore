@@ -1,0 +1,12 @@
+*.pyc
+*~
+__pycache__
+appenv/
+db.sqlite3
+.DS_Store
+node_modules/
+debug_toolbar/
+webpack_loader/
+portfolio/settings.py
+README.md
+LICENSE
