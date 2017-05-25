@@ -1,0 +1,75 @@
+
+/*---------------------------------------
+    Wrapper
+-----------------------------------------*/
+#wrapper {
+	background: transparent;
+	padding-right: 23em;
+}
+
+/*---------------------------------------
+    Header
+-----------------------------------------*/
+.avatar-image {
+	background: url("../images/avatar1.jpg");
+	background-position: top right;
+	background-repeat: no-repeat;
+	background-size: cover;
+	content: '';
+	display: block;
+	height: 15em;
+	width: 100%;
+	border-radius: 100%;
+}
+
+/*---------------------------------------
+    Home Image
+-----------------------------------------*/
+.home-image {
+	background: url("../images/comp5.jpg");
+	background-position: top right;
+	background-repeat: no-repeat;
+	background-size: cover;
+	content: '';
+	display: block;
+	height: 15em;
+	width: 100%;
+}
+
+
+
+/*---------------------------------------
+    Flexible styles
+-----------------------------------------*/
+
+@media screen and (min-width: 1680px) {
+
+	#header {
+		margin-right: 14em;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+
+	#header {
+		margin-right: 12em;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+
+	#header {
+		margin-right: 10em;
+	}
+}
+
+
+@media screen and (min-width: 736px) {
+
+
+}
+
+@media screen and (min-width: 480px) {
+
+
+}

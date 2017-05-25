@@ -3,11 +3,140 @@
 {% load static %}
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Django-Vue2-Setup</title>
+    <title>Dantiff | Portolio </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+    <!-- =========================
+         STATIC STYLESHEETS
+    ============================== -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
 </head>
 <body>
-<div id="app"> Loading...</div>
-{% render_bundle 'main' %}
+
+    <!-- =========================
+        INCLUDE MESSAGES
+    ============================== -->
+    {% include 'partials/messages.html' %}
+
+    <!-- =========================
+        NAVIGATION SECTION
+    ============================== -->
+	<section id="header">
+		<header>
+			<div class="col-md-12 col-sm-12">
+    		    <span class="col-md-12 col-sm-12 avatar-image"></span>
+    		</div>
+			<h1 id="logo"><a href="#">Daniel Mburu</a></h1>
+			<p>I got reprogrammed by a rogue AI<br />
+			and now I'm totally cray</p>
+		</header>
+		<nav id="nav">
+			<ul>
+				<li><a href="#one" class="active">About</a></li>
+				<li><a href="#two">Things I Can Do</a></li>
+				<li><a href="#three">A Few Accomplishments</a></li>
+				<li><a href="#four">Contact</a></li>
+			</ul>
+		</nav>
+		<footer id="icon-footer">
+            <p class="social">
+                <a href="#" class="external facebook" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="external instagram" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-instagram"></i></a>
+                <a href="#" class="external gplus" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="external facebook" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="external facebook" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-github"></i></a>
+                <a href="#" class="email" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-envelope"></i></a>
+            </p>
+		</footer>
+	</section>
+
+
+
+    <div class="col-md-offset-1 col-md-7 col-sm-10" id="wrapper">
+
+
+		<!-- =========================
+            HOME IMAGE
+        ============================== -->
+		<div class="col-md-12 col-sm-12">
+		    <span class="col-md-12 col-sm-12 home-image"></span>
+		</div>
+
+
+		<!-- =========================
+            HOME VIEW
+        ============================== -->
+        <section class="wrapper home" >
+        	<div class="container">
+
+        		<div class="row">
+        		    <div class="highlight wow fadeInLeft col-md-offset-1 col-md-3 col-sm-8" data-wow-delay="1s">
+        				<ul class="home-icon">
+        				    <li><a routerLink="/register" class="fa fa-user-plus fa-2x fadeInUp" data-wow-delay="1s"></a></li>
+        			    </ul>
+        				<span class="external-link"><h3>Create Account </h3><a class="link" routerLink="/register" routerLinkActive="active"><sup class="fa fa-external-link"></sup></a></span>
+        				<p> This app allows remote users to look up debt status. Create your account now and be able to check the debt status of your creditors.</p>
+        				<p> Already have an account? <a class="link"  routerLink="/login" routerLinkActive="active">Login <sup class="fa fa-external-link"></sup></a>.</p>
+        		    </div>
+
+        		    <div class="highlight wow fadeInUp col-md-offset-1 col-md-3 col-sm-8" data-wow-delay="1.5s">
+        				<ul class="home-icon">
+        				    <li><a routerLink="/customers" class="fa fa-search fa-2x fadeInUp" data-wow-delay="1s"></a></li>
+        			    </ul>
+        				<span class="external-link"><h3>Look Up Customers</h3><a class="link" routerLink="/customers" routerLinkActive="active"><sup class="fa fa-external-link"></sup></a></span>
+        				<p>You can search specific customer information. Look Up Customer Debt Information by National ID or Mobile Number. </p>
+        				<p> Already have an account? <a class="link" routerLink="/login" routerLinkActive="active">Login <sup class="fa fa-external-link"></sup></a>.</p>
+        			</div>
+
+
+        		</div>
+        	</div>
+        </section>
+    </div>
+
+
+
+    <div id="app"> Loading...</div>
+
+
+    <!-- =========================
+        LOAD JS FROM WEBPACK
+    ============================== -->
+    {% render_bundle 'main' %}
+
+
+    <!-- =========================
+         SCRIPTS
+    ============================== -->
+    <script src=" {% static 'js/jquery.js' %}"></script>
+    <script src=" {% static 'js/bootstrap.min.js' %}"></script>
+    <script src=" {% static 'js/jquery.parallax.js' %}"></script>
+    <script src=" {% static 'js/owl.carousel.min.js' %}"></script>
+    <script src=" {% static 'js/smoothscroll.js' %}"></script>
+    <script src=" {% static 'js/wow.min.js' %}"></script>
+    <script src=" {% static 'js/custom.js' %}"></script>
+
+    <script src=" {% static 'js/jquery.min.js' %}"></script>
+    <script src=" {% static 'js/jquery.scrollzer.min.js' %}"></script>
+    <script src=" {% static 'js/jquery.scrolly.min.js' %}"></script>
+    <script src=" {% static 'js/skel.min.js' %}"></script>
+    <script src=" {% static 'js/util.js' %}"></script>
+    <script src=" {% static 'js/main.js' %}"></script>
+
 </body>
 </html>
