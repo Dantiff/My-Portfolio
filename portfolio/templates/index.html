@@ -14,12 +14,17 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'>
     <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet'>
+
 
     <!-- =========================
          STATIC STYLESHEETS
     ============================== -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.green.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
@@ -36,14 +41,15 @@
     <!-- =========================
         NAVIGATION SECTION
     ============================== -->
-	<section id="header">
+	<section class="col-md-3" id="header">
 		<header>
 			<div class="col-md-12 col-sm-12">
     		    <span class="col-md-12 col-sm-12 avatar-image"></span>
     		</div>
-			<h1 id="logo"><a href="#">Daniel Mburu</a></h1>
-			<p>I got reprogrammed by a rogue AI<br />
-			and now I'm totally cray</p>
+			<h1 id="logo"><a href="#"class="name">Daniel Mburu</a></h1>
+			<p><strong>Software Engineer</strong> <br />
+			Front and Backend Web Development, Cyber Security <br />
+			Cloud Computing, Information Tech Management: Nairobi, Kenya. </p>
 		</header>
 		<nav id="nav">
 			<ul>
@@ -66,52 +72,66 @@
 	</section>
 
 
-
-    <div class="col-md-offset-1 col-md-7 col-sm-10" id="wrapper">
-
-
-		<!-- =========================
-            HOME IMAGE
-        ============================== -->
-		<div class="col-md-12 col-sm-12">
-		    <span class="col-md-12 col-sm-12 home-image"></span>
+	<!-- =========================
+        HOME IMAGE
+    ============================== -->
+    <div >
+	    <div class="row">
+		    <span class="home-image">
+		        <span class="quote white">
+		            <strong >"</strong>The best performance improvement is the transition from the nonworking state to the working state. <br>
+		            <strong class="float-right black">-- J. Osterhout </strong>
+		        </span>
+		    </span>
 		</div>
+    </div>
+
+    <div class="col-md-offset-1 col-md-7 col-sm-10">
 
 
 		<!-- =========================
-            HOME VIEW
+            HOME MENU
         ============================== -->
-        <section class="wrapper home" >
-        	<div class="container">
 
-        		<div class="row">
-        		    <div class="highlight wow fadeInLeft col-md-offset-1 col-md-3 col-sm-8" data-wow-delay="1s">
-        				<ul class="home-icon">
-        				    <li><a routerLink="/register" class="fa fa-user-plus fa-2x fadeInUp" data-wow-delay="1s"></a></li>
-        			    </ul>
-        				<span class="external-link"><h3>Create Account </h3><a class="link" routerLink="/register" routerLinkActive="active"><sup class="fa fa-external-link"></sup></a></span>
-        				<p> This app allows remote users to look up debt status. Create your account now and be able to check the debt status of your creditors.</p>
-        				<p> Already have an account? <a class="link"  routerLink="/login" routerLinkActive="active">Login <sup class="fa fa-external-link"></sup></a>.</p>
-        		    </div>
+		<div class="row highlight-container">
+		    <div class="wow fadeInLeft col-md-4 col-sm-8" data-wow-delay="1s">
+		        <div class="highlight">
+		            <div class="highlight-head">
+    		            <span class="highlight-icon"><i class="fa fa-thumbs-up fa-2x"></i></span>
+        				<span class="highlight-title">Contact me today! </span>
+		            </div>
+		            <p class="highlight-cotent"> I have over 2 years professional experience in front and backendend web-apps development.</p>
+    				<span class="highligh-link float-right"><a href="#"><i class="fa fa-arrow-circle-o-right fa-2x"> </i></a>  </span>
+		        </div>
+		    </div>
 
-        		    <div class="highlight wow fadeInUp col-md-offset-1 col-md-3 col-sm-8" data-wow-delay="1.5s">
-        				<ul class="home-icon">
-        				    <li><a routerLink="/customers" class="fa fa-search fa-2x fadeInUp" data-wow-delay="1s"></a></li>
-        			    </ul>
-        				<span class="external-link"><h3>Look Up Customers</h3><a class="link" routerLink="/customers" routerLinkActive="active"><sup class="fa fa-external-link"></sup></a></span>
-        				<p>You can search specific customer information. Look Up Customer Debt Information by National ID or Mobile Number. </p>
-        				<p> Already have an account? <a class="link" routerLink="/login" routerLinkActive="active">Login <sup class="fa fa-external-link"></sup></a>.</p>
-        			</div>
+		    <div class="wow fadeInLeft col-md-4 col-sm-8" data-wow-delay="1s">
+		        <div class="highlight">
+		            <div class="highlight-head">
+    		            <span class="highlight-icon"><i class="fa fa-heart fa-2x"></i></span>
+        				<span class="highlight-title">View my resume </span>
+		            </div>
+		            <p class="highlight-cotent"> Download a copy of my resume and get in contact if you think I can help in your business or project. </p>
+    				<span class="highligh-link float-right"><a href="#"><i class="fa fa-arrow-circle-o-right fa-2x"> </i> </a> </span>
+		        </div>
+		    </div>
 
+		    <div class="wow fadeInLeft col-md-4 col-sm-8" data-wow-delay="1s">
+		        <div class="highlight">
+		            <div class="highlight-head">
+    		            <span class="highlight-icon"><i class="fa fa-star fa-2x"></i></span>
+        				<span class="highlight-title">Blog & tutorials </span>
+		            </div>
+		            <p class="highlight-cotent"> Promote positive thinking and manifest change. Read practice tutorials and blogs covering some of the most current and competitive technologies.</p>
+    				<span class="highligh-link float-right"><a href="#"><i class="fa fa-arrow-circle-o-right fa-2x"> </i> </a></span>
+		        </div>
+		    </div>
 
-        		</div>
-        	</div>
-        </section>
+		</div>
     </div>
 
 
 
-    <div id="app"> Loading...</div>
 
 
     <!-- =========================

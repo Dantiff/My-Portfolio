@@ -1,15 +1,40 @@
 
 /*---------------------------------------
-    Wrapper
+    Basics
 -----------------------------------------*/
-#wrapper {
-	background: transparent;
-	padding-right: 23em;
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+	font-weight: 400;
+	background: url("../images/bg8.jpg");
+	background-position: top right;
+	background-repeat: no-repeat;
+	background-size: cover;
+	content: '';
+	display: block;
+	width: 100%;
+}
+
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+.white {
+    color: #ffffff;
+}
+.black {
+    color: black;
 }
 
 /*---------------------------------------
     Header
 -----------------------------------------*/
+
+
 .avatar-image {
 	background: url("../images/avatar1.jpg");
 	background-position: top right;
@@ -17,26 +42,88 @@
 	background-size: cover;
 	content: '';
 	display: block;
-	height: 15em;
+	height: 13em;
 	width: 100%;
 	border-radius: 100%;
 }
+.name {
+    font-family: 'Tangerine', serif;
+    font-weight: 900;
+    font-size: 38px;
+}
+
+.explain {
+    font-family: 'Knewave', serif;
+    font-weight: 700;
+    font-size: 24px;
+}
+
 
 /*---------------------------------------
-    Home Image
+    Wrapper
 -----------------------------------------*/
+#wrapper {
+	background: transparent;
+}
+.center-block {
+	margin-left: 8.33333333%;
+	width: 61.1733333%;
+}
 .home-image {
-	background: url("../images/comp5.jpg");
+	background: url("../images/home.jpg");
 	background-position: top right;
 	background-repeat: no-repeat;
 	background-size: cover;
 	content: '';
+	height: 30em;
 	display: block;
-	height: 15em;
-	width: 100%;
+	margin-left: 8.33333333%;
+	width: 63%;
+}
+
+.quote {
+    font-family: 'Knewave', serif;
+    font-weight: 500;
+    font-size: 24px;
+    position: relative;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 10% 0 10%;
 }
 
 
+/*---------------------------------------
+    Highlight
+-----------------------------------------*/
+.highlight {
+    padding: 1.5em 0 1.5em 0;
+    color: #ffffff;
+}
+.highlight-head {
+    display: inline-flex;
+    padding: 0 0 10px 0;
+}
+.highlight-icon {
+    color: #4acaa8;
+}
+.highlight-title {
+    font-family: poppins;
+    font-weight: 900;
+    font-size: 22px;
+    padding: 3px 0 0 10px;
+}
+.highlight-cotent {
+    text-align: center;
+}
+.highlight-link {
+    color: #4acaa8;
+    padding: 0 10px 0 0;
+}
+.highlight-link a:hover {
+			color: blue !important;
+		}
 
 /*---------------------------------------
     Flexible styles
@@ -44,28 +131,22 @@
 
 @media screen and (min-width: 1680px) {
 
-	#header {
-		margin-right: 14em;
-	}
+
 }
 
 @media screen and (min-width: 1280px) {
 
-	#header {
-		margin-right: 12em;
-	}
 }
 
 @media screen and (min-width: 1024px) {
+#header {
+    margin-right: 8.33333333%;
+}
 
-	#header {
-		margin-right: 10em;
-	}
 }
 
 
 @media screen and (min-width: 736px) {
-
 
 }
 
@@ -73,3 +154,18 @@
 
 
 }
+
+@media screen and (max-width: 1024px) {
+
+.avatar-image {
+	height: 9em;
+}
+.home-image {
+    width: 100%;
+	margin-left: 0;
+}
+.highlight-container {
+    background: black;
+}
+
+
