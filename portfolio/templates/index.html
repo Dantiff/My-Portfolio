@@ -8,8 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-
-
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'>
@@ -24,12 +22,49 @@
     ============================== -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.green.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.theme.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/avatar1.jpg' %}">
+
+
+
+    <!-- =========================
+         CANVAS JS
+    ============================== -->
+    <script src=" {% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+    <script src=" {% static 'js/jquery.tagcanvas.min.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        if(!$('#frontendCanvas').tagcanvas({
+             reverse: true,
+             textColour : '#505050',
+             outlineColour: '#77a6ee;',
+             outlineThickness : 1,
+             maxSpeed : 0.03,
+             depth : 0.75,
+             initial : [0.1,-0.1]
+        },'frontendTags')) {
+          // something went wrong, hide the canvas container
+          $('#myCanvasContainer').hide();
+        }
+        if(!$('#backendCanvas').tagcanvas({
+             reverse: true,
+             textColour : '#505050',
+             outlineColour: '#77a6ee;',
+             outlineThickness : 1,
+             maxSpeed : 0.03,
+             depth : 0.75,
+             initial : [0.1,-0.1]
+        },'backendTags')) {
+          // something went wrong, hide the canvas container
+          $('#myCanvasContainer').hide();
+        }
+      });
+    </script>
+
 </head>
 <body>
 
@@ -37,98 +72,275 @@
         INCLUDE MESSAGES
     ============================== -->
     {% include 'partials/messages.html' %}
+    <div class="col-sm-12">
+        <div class="row">
 
-    <!-- =========================
-        NAVIGATION SECTION
-    ============================== -->
-	<section class="col-md-3" id="header">
-		<header>
-			<div class="col-md-12 col-sm-12">
-    		    <span class="col-md-12 col-sm-12 avatar-image"></span>
-    		</div>
-			<h1 id="logo"><a href="#"class="name">Daniel Mburu</a></h1>
-			<p><strong>Software Engineer</strong> <br />
-			Front and Backend Web Development, Cyber Security <br />
-			Cloud Computing, Information Tech Management: Nairobi, Kenya. </p>
-		</header>
-		<nav id="nav">
-			<ul>
-				<li><a href="#one" class="active">About</a></li>
-				<li><a href="#two">Things I Can Do</a></li>
-				<li><a href="#three">A Few Accomplishments</a></li>
-				<li><a href="#four">Contact</a></li>
-			</ul>
-		</nav>
-		<footer id="icon-footer">
-            <p class="social">
-                <a href="#" class="external facebook" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-facebook"></i></a>
-                <a href="#" class="external instagram" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-instagram"></i></a>
-                <a href="#" class="external gplus" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-google-plus"></i></a>
-                <a href="#" class="external facebook" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-twitter"></i></a>
-                <a href="#" class="external facebook" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-github"></i></a>
-                <a href="#" class="email" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-envelope"></i></a>
-            </p>
-		</footer>
-	</section>
+            <!-- =========================
+                NAVIGATION SECTION
+            ============================== -->
+        	<section class="col-md-3" id="header">
+        		<header>
+        			<div class="col-md-12 col-sm-12">
+            		    <span class="col-md-12 col-sm-12 avatar-image"></span>
+            		</div>
+        			<h1 id="logo"><a href="#"class="name">Daniel Mburu</a></h1>
+        			<p><strong>Software Engineer</strong> <br />
+        			Front and Backend Web Development, Cyber Security <br />
+        			Cloud Computing, Information Tech Management: Nairobi, Kenya. </p>
+        		</header>
+        		<nav id="nav">
+        			<ul>
+        				<li><a href="#about-me" class="active">About Me</a></li>
+        				<li><a href="#skills-highlight">Skills Highligh</a></li>
+        				<li><a href="#three">A Few Accomplishments</a></li>
+        				<li><a href="#contact-me">Contact</a></li>
+        			</ul>
+        		</nav>
+        		<footer id="icon-footer">
+                    <p class="social">
+                        <a href="#" class="external facebook" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="external instagram" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="external gplus" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="external facebook" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="external facebook" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-github"></i></a>
+                        <a href="#" class="email" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-envelope"></i></a>
+                    </p>
+        		</footer>
+        	</section>
 
 
-	<!-- =========================
-        HOME IMAGE
-    ============================== -->
-    <div >
-	    <div class="row">
-		    <span class="home-image">
-		        <span class="quote white">
-		            <strong >"</strong>The best performance improvement is the transition from the nonworking state to the working state. <br>
-		            <strong class="float-right black">-- J. Osterhout </strong>
-		        </span>
-		    </span>
-		</div>
+            <div class="col-md-offset-1 col-md-7 col-sm-10 home-wrap">
+
+
+            	<!-- =========================
+                    HOME IMAGE
+                ============================== -->
+                <div >
+            	    <div class="row">
+            		    <span class="home-image">
+            		        <span class="quote white">
+            		            <strong >"</strong>The best performance improvement is the transition from the nonworking state to the working state. <br>
+            		            <strong class="float-right black">-- J. Osterhout </strong>
+            		        </span>
+            		    </span>
+            		</div>
+                </div>
+
+        		<!-- =========================
+                    HIGHLIGHT MENU
+                ============================== -->
+
+        		<div class="row highlight-container">
+        		    <div class="wow fadeInLeft col-md-4 col-sm-8" data-wow-delay="0.8s">
+        		        <div class="highlight">
+        		            <div class="highlight-head">
+            		            <span class="highlight-icon"><i class="fa fa-thumbs-up fa-2x"></i></span>
+                				<span class="highlight-title">Contact me today! </span>
+        		            </div>
+        		            <p class="highlight-cotent"> I have over 2 years professional experience in front and backendend web-apps development.</p>
+            				<span class="highligh-link float-right"><a href="#" class="blink"><i class="fa fa-arrow-circle-o-right fa-2x"> </i></a>  </span>
+        		        </div>
+        		    </div>
+
+        		    <div class="wow fadeInUp col-md-4 col-sm-8" data-wow-delay="1.2s">
+        		        <div class="highlight">
+        		            <div class="highlight-head">
+            		            <span class="highlight-icon"><i class="fa fa-heart fa-2x"></i></span>
+                				<span class="highlight-title">View my resume </span>
+        		            </div>
+        		            <p class="highlight-cotent"> Download a copy of my resume and get in contact if you think I can help in your business or project. </p>
+            				<span class="highligh-link float-right"><a href="#" class="blink"><i class="fa fa-arrow-circle-o-right fa-2x"> </i> </a> </span>
+        		        </div>
+        		    </div>
+
+        		    <div class="wow fadeInRight col-md-4 col-sm-8" data-wow-delay="0.8s">
+        		        <div class="highlight">
+        		            <div class="highlight-head">
+            		            <span class="highlight-icon"><i class="fa fa-star fa-2x"></i></span>
+                				<span class="highlight-title">Blog & tutorials </span>
+        		            </div>
+        		            <p class="highlight-cotent"> Promote positive thinking and manifest change. Read practice tutorials and blogs covering some of the most current and competitive technologies.</p>
+            				<span class="highligh-link float-right"><a href="#" class="blink"><i class="fa fa-arrow-circle-o-right fa-2x"> </i> </a></span>
+        		        </div>
+        		    </div>
+
+        		</div>
+
+
+        		<!-- =========================
+                    ABOUT ME
+                ============================== -->
+
+        		<div class="row highlight-container" id="about-me">
+        		    <div class="wow fadeInLeft col-md-12 col-sm-10" data-wow-delay="0.6s">
+        		        <div class="content">
+        					<header class="major">
+        						<h2>About Me</h2>
+        						<p class="text-white">Full stack web developer</p>
+        					</header>
+        					<div>
+                                <div class="text-grey text-block"> <span class="dropcapsimple">W</span>elcome, my name is Daniel. I am a software developer from Nairobi, Kenya who loves to write software to build great products and help businesses succeed with their goals. I appreciate good design and I am seeing it's importance more then ever in todays apps, web sites and products.<br></div>
+                                <div class="text-grey text-block"><span class="dropcapsimple">I</span> am an aspiring entrepreneur who subscribes to the lean startup ideology and have a career aspiration to leverage strong academic and professional knowledge to enhance the provision of quality services and contribute significantly to strategic goals and objectives within organizations and the overall society. I have been working professionally in software development since 2015 in the web app spaces with experience across the finance, cash management, human resources and media domains. I occasionally dabble in blog writting and tutorial making.</div>
+                            </div>
+        				</div>
+        		    </div>
+
+        		</div>
+
+
+        		<!-- =========================
+                    SKILLS HIGHLIGHT
+                ============================== -->
+
+        		<div class="row highlight-container" id="skills-highlight">
+        		    <div class="wow fadeInLeft col-md-12 col-sm-10" data-wow-delay="1s">
+        		        <div class="content">
+        					<header class="major">
+        						<h2>Skills Highlight</h2>
+        					</header>
+                            <div class="col-sm-12" id="myCanvasContainer">
+                              <div class="col-md-6 col-sm-12">
+            					<header class="major">
+            						<p class="text-white">Frontend</p>
+            					</header>
+                                  <canvas class="canvas-box" id="frontendCanvas">
+                                    <p>Anything in here will be replaced on browsers that support the canvas element</p>
+                                  </canvas>
+                              </div>
+                              <div class="col-md-6 col-sm-12">
+            					<header class="major">
+            						<p class="text-white">Backend</p>
+            					</header>
+                                  <canvas class="canvas-box" id="backendCanvas">
+                                    <p>Anything in here will be replaced on browsers that support the canvas element</p>
+                                  </canvas>
+                              </div>
+                            </div>
+							<div class="" id="frontendTags">
+							    <ul class="feature-icons">
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/html5.png' %}">HTML5</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/css3.png' %}">CSS3</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/js.png' %}">JavaScript</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/jquery.png' %}">JQuery</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/angular.png' %}">AngularJS 1</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/vue.png' %}">VueJS 2</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/mailchimp.png' %}">MailChimp</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/api.png' %}">API</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/gulp.png' %}">Gulp</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/git1.png' %}">GIT</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/web-api.png' %}">WEB-API</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/angular2.png' %}">AngularJS 2</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/vuejs.png' %}">VueJS 2</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/git.png' %}">GIT</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/sass.png' %}">SASS</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/sass-less.png' %}">SASS-LESS</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/webpack.jpg' %}">Webpack</img></a></li>
+								</ul>
+							</div>
+							<div class="" id="backendTags">
+							    <ul class="feature-icons">
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/php.png' %}">PHP</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/cpp.png' %}">C++</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/java.png' %}">Java</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/mysql.png' %}">MySQL</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/python.png' %}">Python</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/pgsql.png' %}">PostgreSQL</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/git.png' %}">Git</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/wamp.png' %}">WAMP</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/xxamp.png' %}">XXAMP</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/apache.png' %}">Apache</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/laravel.png' %}">Laravle</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/django.png' %}">Django</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/django-rest.png' %}">Django-Rest</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/django-python.png' %}">Django-Python</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/aws.png' %}">AWS</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/netbeans.png' %}">NetBeans</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/phpstorm.png' %}">PHPStorm</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/sublime.png' %}">Sublime Text</img></a></li>
+							        <li><a href="#"><img class="canvas-image" src=" {% static 'images/notepadpp.png' %}">Notepad ++</img></a></li>
+								</ul>
+							</div>
+        				</div>
+        		    </div>
+
+        		</div>
+
+
+        		<!-- =========================
+                    CONTACT ME
+                ============================== -->
+
+        		<div class="row highlight-container" id="contact-me">
+        		    <div class="wow fadeInLeft col-md-12 col-sm-10" data-wow-delay="1s">
+        		        <div class="content">
+        					<header class="major">
+        						<h2>Contact Me</h2>
+        						<p class="text-black">Full stack web developer</p>
+        					</header>
+							<div class="">
+							    <form method="post" action="#">
+									<div class="row uniform">
+										<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
+										<div class="6u 12u(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
+									</div>
+									<div class="row uniform">
+										<div class="12u"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+									</div>
+									<div class="row uniform">
+										<div class="12u"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+									</div>
+									<div class="row uniform">
+										<div class="12u">
+											<ul class="actions">
+												<li><input type="submit" class="special" value="Send Message" /></li>
+												<li><input type="reset" value="Reset Form" /></li>
+											</ul>
+										</div>
+									</div>
+								</form>
+							</div>
+        				</div>
+        		    </div>
+        		</div>
+
+
+
+        		<!-- =========================
+                    FOOTER
+                ============================== -->
+
+        		<div class="row highlight-container" id="footer">
+        		    <div class="wow fadeInUp col-md-12 col-sm-10" data-wow-delay="1s">
+        		        <div class="content">
+							<div class="">
+                                <p class="social padding-top-20">
+                                    <a href="#" class="external facebook" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="external instagram" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-instagram"></i></a>
+                                    <a href="#" class="external gplus" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#" class="external twitter" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="external github" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-github"></i></a>
+                                    <a href="#" class="email" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-envelope"></i></a>
+                                </p>
+
+                                <p class="text-black padding-top-20">&copy; {% now "Y" %} Daniel Mburu. All rights reserved.</p>
+							</div>
+        				</div>
+        		    </div>
+
+        		</div>
+
+
+
+
+
+
+            </div>
+
+        </div>
     </div>
 
-    <div class="col-md-offset-1 col-md-7 col-sm-10">
 
 
-		<!-- =========================
-            HOME MENU
-        ============================== -->
-
-		<div class="row highlight-container">
-		    <div class="wow fadeInLeft col-md-4 col-sm-8" data-wow-delay="1s">
-		        <div class="highlight">
-		            <div class="highlight-head">
-    		            <span class="highlight-icon"><i class="fa fa-thumbs-up fa-2x"></i></span>
-        				<span class="highlight-title">Contact me today! </span>
-		            </div>
-		            <p class="highlight-cotent"> I have over 2 years professional experience in front and backendend web-apps development.</p>
-    				<span class="highligh-link float-right"><a href="#"><i class="fa fa-arrow-circle-o-right fa-2x"> </i></a>  </span>
-		        </div>
-		    </div>
-
-		    <div class="wow fadeInLeft col-md-4 col-sm-8" data-wow-delay="1s">
-		        <div class="highlight">
-		            <div class="highlight-head">
-    		            <span class="highlight-icon"><i class="fa fa-heart fa-2x"></i></span>
-        				<span class="highlight-title">View my resume </span>
-		            </div>
-		            <p class="highlight-cotent"> Download a copy of my resume and get in contact if you think I can help in your business or project. </p>
-    				<span class="highligh-link float-right"><a href="#"><i class="fa fa-arrow-circle-o-right fa-2x"> </i> </a> </span>
-		        </div>
-		    </div>
-
-		    <div class="wow fadeInLeft col-md-4 col-sm-8" data-wow-delay="1s">
-		        <div class="highlight">
-		            <div class="highlight-head">
-    		            <span class="highlight-icon"><i class="fa fa-star fa-2x"></i></span>
-        				<span class="highlight-title">Blog & tutorials </span>
-		            </div>
-		            <p class="highlight-cotent"> Promote positive thinking and manifest change. Read practice tutorials and blogs covering some of the most current and competitive technologies.</p>
-    				<span class="highligh-link float-right"><a href="#"><i class="fa fa-arrow-circle-o-right fa-2x"> </i> </a></span>
-		        </div>
-		    </div>
-
-		</div>
-    </div>
 
 
 
@@ -143,20 +355,19 @@
     <!-- =========================
          SCRIPTS
     ============================== -->
-    <script src=" {% static 'js/jquery.js' %}"></script>
     <script src=" {% static 'js/bootstrap.min.js' %}"></script>
     <script src=" {% static 'js/jquery.parallax.js' %}"></script>
     <script src=" {% static 'js/owl.carousel.min.js' %}"></script>
     <script src=" {% static 'js/smoothscroll.js' %}"></script>
     <script src=" {% static 'js/wow.min.js' %}"></script>
     <script src=" {% static 'js/custom.js' %}"></script>
-
-    <script src=" {% static 'js/jquery.min.js' %}"></script>
+    
     <script src=" {% static 'js/jquery.scrollzer.min.js' %}"></script>
     <script src=" {% static 'js/jquery.scrolly.min.js' %}"></script>
     <script src=" {% static 'js/skel.min.js' %}"></script>
     <script src=" {% static 'js/util.js' %}"></script>
     <script src=" {% static 'js/main.js' %}"></script>
+
 
 </body>
 </html>

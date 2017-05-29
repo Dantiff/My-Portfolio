@@ -1690,9 +1690,10 @@
 	}
 
 	header p {
-		color: #aaa;
+		color: #ffffff;
 		position: relative;
-		margin: 0 0 1.6875em 0;
+		margin: 0 0 0 0;
+        font-family: 'poppins', serif;
 	}
 
 	header h2 + p {
@@ -1718,14 +1719,19 @@
 	header.major h2 {
 		color: #4acaa8;
 		font-size: 3.5em;
+        font-family: 'Tangerine', serif;
+        font-weight: 900;
 	}
-
-		header.major h2 + p {
-			color: #777;
-			font-size: 1.75em;
-			font-weight: 700;
-			margin-top: -0.75em;
-		}
+	header.major h2 + p {
+		font-size: 1.75em;
+		font-weight: 900;
+		margin-top: -0.75em;
+	}
+	header.major p {
+	    font-size: 1.4em;
+        font-weight: 900;
+        margin: -0.75em 0 0.7em 0;
+	}
 
 /* Form */
 
@@ -2592,39 +2598,6 @@
 		width: 100%;
 	}
 
-/* Footer */
-
-	#footer {
-		background: #fafafa;
-		border-top: 0;
-		color: #c0c0c0;
-		overflow: hidden;
-		padding: 4em 0 2em 0;
-	}
-
-		#footer .copyright {
-			line-height: 1em;
-			list-style: none;
-			padding: 0;
-		}
-
-			#footer .copyright li {
-				border-left: solid 1px #d4d4d4;
-				display: inline-block;
-				font-size: 0.8em;
-				margin-left: 1em;
-				padding-left: 1em;
-			}
-
-				#footer .copyright li:first-child {
-					border-left: 0;
-					margin-left: 0;
-					padding-left: 0;
-				}
-
-				#footer .copyright li a {
-					color: inherit;
-				}
 
 /* XLarge */
 
@@ -2637,10 +2610,6 @@
 			}
 
 		/* Header */
-
-			#header {
-				width: 21em;
-			}
 
 				#header > header {
 					padding: 2em;
@@ -2672,12 +2641,6 @@
 
 			body, input, select, textarea {
 				font-size: 11pt;
-			}
-
-		/* Header */
-
-			#header {
-				width: 20em;
 			}
 
 		/* Wrapper */
