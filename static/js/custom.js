@@ -2,7 +2,7 @@
  /* jQuery Pre loader
   -----------------------------------------------*/
 $(window).load(function(){
-    $('.preloader').fadeOut(1000); // set duration in brackets    
+    $('.preloader').fadeOut(1000); // set duration in brackets
 });
 
 
@@ -17,7 +17,7 @@ $(window).scroll(function() {
 });
 
 
-/* HTML document is loaded. DOM is ready. 
+/* HTML document is loaded. DOM is ready.
 -------------------------------------------*/
 $(document).ready(function() {
 
@@ -28,36 +28,38 @@ $(document).ready(function() {
     });
 
 
- /* Parallax section
-    -----------------------------------------------*/
-  function initParallax() {
-    $('#intro').parallax("100%", 0.1);
-    $('#overview').parallax("100%", 0.3);
-    $('#detail').parallax("100%", 0.2);
-    $('#video').parallax("100%", 0.3);
-    $('#speakers').parallax("100%", 0.1);
-    $('#program').parallax("100%", 0.2);
-    $('#register').parallax("100%", 0.1);
-    $('#faq').parallax("100%", 0.3);
-    $('#venue').parallax("100%", 0.1);
-    $('#sponsors').parallax("100%", 0.3);
-    $('#contact').parallax("100%", 0.2);
-
-  }
-  initParallax();
-
-
   /* Owl Carousel
   -----------------------------------------------*/
   $(document).ready(function() {
-    $("#owl-speakers").owlCarousel({
+    $("#projects-slider").owlCarousel({
       autoPlay: 6000,
-      items : 4,
+      items : 1,
       itemsDesktop : [1199,2],
       itemsDesktopSmall : [979,1],
       itemsTablet: [768,1],
       itemsTabletSmall: [985,2],
-      itemsMobile : [479,1],
+      itemsMobile : [500,1],
+      navigation:true,
+      navigationText: [
+        "<i class='fa fa-chevron-circle-left fa-2x'></i>",
+        "<i class='fa fa-chevron-circle-right fa-2x'></i>"
+      ],
+    });
+
+
+    $("#tutorials-slider").owlCarousel({
+      autoPlay: 6000,
+      items : 1,
+      itemsDesktop : [1199,2],
+      itemsDesktopSmall : [979,1],
+      itemsTablet: [768,1],
+      itemsTabletSmall: [985,2],
+      itemsMobile : [500,1],
+      navigation:true,
+      navigationText: [
+        "<i class='fa fa-chevron-circle-left fa-2x'></i>",
+        "<i class='fa fa-chevron-circle-right fa-2x'></i>"
+      ],
     });
   });
 
@@ -70,7 +72,7 @@ $(document).ready(function() {
         } else {
           $('.go-top').fadeOut(200);
         }
-        });   
+        });
         // Animate the scroll to top
       $('.go-top').click(function(event) {
         event.preventDefault();
