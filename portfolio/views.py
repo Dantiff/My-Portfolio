@@ -1,5 +1,46 @@
 from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.views import View
+from portfolio.forms import *
+from portfolio.models import *
+
+class Index(View):
+    template_name = 'index.html'
+    form_class = MessageForm
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            message = Message(
+            name=form.cleaned_data['name'],
+            email=form.cleaned_data['email'],
+            subject=form.cleaned_data['subject'],
+            message=form.cleaned_data['message'],
+            )
+            message.save()
+            return HttpResponseRedirect('/')
+
+        return render(request, self.template_name, {'form': form})
 
 
-def index(request):
-    return render(request, 'index.html')
+
+class Blogs(View):
+    template_name = 'index.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            # <process form cleaned data>
+            return HttpResponseRedirect('/success/')
+
+        return render(request, self.template_name, {'form': form})
+
+
+
+

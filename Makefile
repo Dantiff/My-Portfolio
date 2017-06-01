@@ -21,7 +21,9 @@ run:
 # This step depends on `make dev`, however dependency is excluded to speed up dev server startup.
 migrate:
 	python ./manage.py makemigrations
+	python ./manage.py makemigrations portfolio
 	python ./manage.py migrate
+	python ./manage.py migrate portfolio
 
 # Builds files for distribution which will be placed in /static/dist
 build: prod migrate

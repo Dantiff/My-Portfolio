@@ -16,12 +16,12 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
-
-import portfolio.views
+from portfolio.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', portfolio.views.index)
+    url(r'^$', Index.as_view()),
+    url(r'^blogs/$', Blogs.as_view()),
 ]
 
 
