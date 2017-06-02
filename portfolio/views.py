@@ -43,7 +43,7 @@ class Index(View):
 
 
 class Blogs(View):
-    template_name = 'index.html'
+    template_name = 'blogs.html'
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
