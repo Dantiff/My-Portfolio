@@ -27,6 +27,65 @@ $(document).ready(function() {
         $(".navbar-collapse").collapse('hide');
     });
 
+  /* Slick Carousel
+  -----------------------------------------------*/
+$(document).ready(function() {
+
+
+    $('.projects-carousel').slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000
+    });
+
+
+    $(".projects-carouselg").slick({
+
+        autoplay: true,
+        dots: true,
+        infinite: true,
+        speed: 6000,
+        fade: true,
+        slidesToShow: 1,
+        centerMode: false,
+        centerPadding: '40px',
+        responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            arrows: true,
+            centerMode: false,
+            centerPadding: '40px',
+            slidesToShow: 1
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            centerMode: false,
+            centerPadding: '40px',
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: false,
+            centerMode: false,
+            centerPadding: '40px',
+            slidesToShow: 1
+          }
+        }
+        ]
+    });
+
+});
+
+
 
   /* Owl Carousel
   -----------------------------------------------*/
