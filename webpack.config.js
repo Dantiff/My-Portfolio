@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var BundleTracker = require('webpack-bundle-tracker');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // Directory for deployed assets. It should be within our static files path.
 // Backslash at the end is not required.
@@ -13,14 +14,19 @@ var dev_server_addr = '34.206.101.184';
 var dev_server_port = 8889;
 
 module.exports = {
-    entry: ['./frontend/main.js'],
+    entry: ['./frontend/main.js', './static/scss/style.scss'],
     output: {
         path: path.resolve(__dirname, '.' + dist_dir + '/'),
-        filename: '[name]-[hash].js',
+        filename: 'js/[name]-[hash].js',
         publicPath: dist_dir + '/',
     },
     plugins: [
         new BundleTracker({filename: './webpack-stats.json'}),
+
+        new ExtractTextPlugin({ // define where to save the file
+          filename: 'css/[name]-[hash].css',
+          allChunks: true,
+        }),
     ],
     module: {
         rules: [
@@ -49,6 +55,17 @@ module.exports = {
                 options: {
                     name: '[name].[ext]?[hash]'
                 }
+            },
+
+            { // regular css files
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract({
+                  loader: 'css-loader?importLoaders=1',
+                }),
+            },
+            { // sass / scss loader for webpack
+                test: /\.(sass|scss)$/,
+                loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
             }
         ]
     },
