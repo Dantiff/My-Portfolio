@@ -1,6 +1,11 @@
-<!DOCTYPE html>
+
 {% load render_bundle from webpack_loader %}
+
 {% load static %}
+
+{% load sass_tags %}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Dantiff | {% block title %}{% endblock %} </title>
@@ -20,6 +25,7 @@
     <!-- =========================
          STATIC STYLESHEETS
     ============================== -->
+    <link rel="stylesheet" href="{% sass_src 'scss/style.scss' %}"  type="text/css" />
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
