@@ -628,8 +628,11 @@ body {
     .highlight-container {
         background: black;
     }
-	header.major p {
+	.header.major p {
         margin: 0.75em 0 0.7em 0;
+	}
+	.base-div {
+	    padding-top: 2em;
 	}
 }
 

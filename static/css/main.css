@@ -2769,9 +2769,15 @@
 				}
 
 					#titleBar .title a {
+					    color: #4acaa8 !important;
 						border: 0;
 						text-decoration: none;
 					}
+
+        			#titleBar .title a :hover {
+        				    color: #337ab7 !important;
+        			}
+
 
 				#titleBar .toggle {
 					text-decoration: none;
