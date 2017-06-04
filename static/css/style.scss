@@ -48,6 +48,9 @@ body {
 .padding-top-20 {
     padding-top: 20px;
 }
+.padding-bottom-15 {
+    padding-bottom: 15px;
+}
 .padding-10 {
     padding: 10px;
 }
@@ -58,6 +61,9 @@ body {
     padding: 0 1em 0 1em;
 }
 
+.italic {
+    font-style: italic;
+}
 /*---------------------------------------
     Header
 -----------------------------------------*/
@@ -251,6 +257,21 @@ body {
    vertical-align:middle;
    line-height:100%;
 }
+.slider-button {
+  text-align: center;
+  opacity: 1;
+  transition: opacity .35s ease;
+}
+
+.slider-button a {
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  border: solid 2px white;
+  z-index: 1;
+  padding: 0.7em 1.5em 0.7em 1.5em;
+  border-radius: 5px;
+}
 
 
 /*---------------------------------------
@@ -269,7 +290,6 @@ body {
 #footer {
   background: #e6e6e6;
   font-size: 14px;
-  line-height: 50px;
 }
 #footer p.social {
   text-align: center;
@@ -280,6 +300,7 @@ body {
   display: inline-block;
   width: 50px;
   height: 50px;
+  padding: 0 0 15px 0;
   border-radius: 25px;
   line-height: 50px;
   font-size: 25px;

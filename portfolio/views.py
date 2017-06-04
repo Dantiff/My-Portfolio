@@ -1,3 +1,5 @@
+import os, tempfile, zipfile
+from wsgiref.util import FileWrapper
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail
@@ -56,6 +58,23 @@ class Blogs(View):
 
         return render(request, self.template_name, {'form': form})
 
+
+
+
+class Resume(View):
+
+    def get(self, request, *args, **kwargs):
+        """
+        Send a file through Django without loading the whole file into
+        memory at once. The FileWrapper will turn the file object into an
+        iterator for chunks of 8KB.
+        """
+        filename = "/home/bivestinc/portfolio/media/Daniel_Resume_2017.pdf"
+        wrapper = FileWrapper(open(filename, 'rb'))
+        response = HttpResponse(wrapper, content_type='text/plain')
+        response['Content-Disposition'] = 'attachment; filename=%s' % os.path.basename(filename)
+        response['Content-Length'] = os.path.getsize(filename)
+        return response
 
 
 
