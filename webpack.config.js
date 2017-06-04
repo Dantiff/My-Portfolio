@@ -14,7 +14,7 @@ var dev_server_addr = '34.206.101.184';
 var dev_server_port = 8889;
 
 module.exports = {
-    entry: ['./frontend/main.js', './static/scss/style.scss'],
+    entry: ['./frontend/main.js', './static/css/style.scss'],
     output: {
         path: path.resolve(__dirname, '.' + dist_dir + '/'),
         filename: 'js/[name]-[hash].js',

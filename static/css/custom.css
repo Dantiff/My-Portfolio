@@ -2,7 +2,12 @@
 
 
 
-/* Slider */
+
+/*-------------Slider---------*/
+.slide-box {
+    color: white;
+}
+
 .slick-slider {
     position: relative;
     display: table !important;
@@ -110,7 +115,9 @@
 }
 
 
-/* Arrows */
+
+
+/*-----------------slider Arrows---------*/
 
 .slick-prev,
 .slick-next {
@@ -160,7 +167,8 @@
     }
 }
 
-/* Dots */
+
+/*---------------Slider Dots---------*/
 
 .slick-slider {
     margin-bottom: 30px;
@@ -209,7 +217,7 @@
                 font-size: 6px;
                 line-height: 20px;
                 text-align: center;
-                color: black;
+                color: white !important;
                 opacity: 0.25;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
@@ -221,90 +229,11 @@
     }
 }
 
-// DEMO styling //////////////////////////////////////////
+
+/*-----------------Carousel Box---------*/
 .content {
     width: 80%;
     margin: auto;
-}
-
-.blue, html {
-    background: #3498db;
-    color: #fff;
-
-
-    h3 {
-        background: #fff;
-        color: #3498db;
-        font-size: 36px;
-        line-height: 100px;
-        margin: 10px;
-        padding: 2%;
-        position: relative;
-        text-align: center;
-        border: 1px solid #999;
-    }
-}
-
-
-/* Dots */
-
-
-
-.slick-dots {
-    position: absolute;
-    bottom: -45px;
-    list-style: none;
-    display: block;
-    text-align: center;
-    padding: 0px;
-    width: 100%;
-    li {
-        position: relative;
-        display: inline-block;
-        height: 20px;
-        width: 20px;
-        margin: 0px 5px;
-        padding: 0px;
-        cursor: pointer;
-        button {
-            border: 0;
-            background: transparent;
-            display: block;
-            height: 20px;
-            width: 20px;
-            outline: none;
-            line-height: 0;
-            font-size: 0;
-            color: transparent;
-            padding: 5px;
-            cursor: pointer;
-            outline: none;
-            &:focus {
-                outline: none;
-            }
-            &:before {
-                position: absolute;
-                top: 0;
-                left: 0;
-                content: '\2022';
-                width: 20px;
-                height: 20px;
-                font-family: "slick";
-                // font-size: 6px;
-                font-size: 20px;
-                line-height: 20px;
-                text-align: center;
-                // color: black;
-                color: white;
-                opacity: 0.25;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-            }
-        }
-        &.slick-active button:before {
-            opacity: 0.75;
-        }
-    }
 }
 
 

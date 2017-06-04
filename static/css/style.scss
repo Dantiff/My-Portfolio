@@ -251,30 +251,6 @@ body {
    vertical-align:middle;
    line-height:100%;
 }
-.slider-button {
-  text-align: center;
-  opacity: 1;
-  transition: opacity .35s ease;
-}
-
-.slider-button a {
-  text-align: center;
-  color: white;
-  text-transform: uppercase;
-  border: solid 2px white;
-  z-index: 1;
-  padding: 0.7em 1.5em 0.7em 1.5em;
-  border-radius: 5px;
-}
-.owl-buttons {
-    padding: 0 2em 2em 2em;
-}
-.owl-prev {
-    float: left;
-}
-.owl-next {
-    float: right;
-}
 
 
 /*---------------------------------------
@@ -402,7 +378,6 @@ body {
         outline: none;
     }
     .slick-loading & {
-        background: white url(./ajax-loader.gif) center center no-repeat;
     }
     &.dragging {
         cursor: pointer;
@@ -447,7 +422,6 @@ body {
     img {
         display: block;
         &.slick-loading {
-            background: white url(./ajax-loader.gif) center center no-repeat;
             padding-bottom: 100%;
         }
     }
@@ -467,21 +441,6 @@ body {
         border: 1px solid transparent;
     }
 }
-
-/* Icons */
-
-@charset "UTF-8";
-
-@font-face {
-    font-family: "slick";
-    src: url("./fonts/slick.eot");
-    src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg");
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-
 
 /*-----------------slider Arrows---------*/
 

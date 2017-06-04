@@ -32,56 +32,48 @@ $(document).ready(function() {
 $(document).ready(function() {
 
 
-    $('.projects-carousel').slick({
+    $('.portfolio-slider').slick({
         dots: true,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2000
+        arrows: false,
+        autoplaySpeed: 5000,
+        responsive: [{
+            breakpoint: 992,
+            settings: {
+                arrows:true,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 2
+            }
+
+        }, {
+            breakpoint: 800,
+            settings: {
+                arrows: true,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 2
+
+            }
+
+
+        }, {
+            breakpoint: 600,
+            settings: {
+                arrows: true,
+
+            }
+        }, {
+            breakpoint: 480,
+            settings: {
+                arrows: true,
+            }
+        }]
     });
 
-
-    $(".projects-carouselg").slick({
-
-        autoplay: true,
-        dots: true,
-        infinite: true,
-        speed: 6000,
-        fade: true,
-        slidesToShow: 1,
-        centerMode: false,
-        centerPadding: '40px',
-        responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            arrows: true,
-            centerMode: false,
-            centerPadding: '40px',
-            slidesToShow: 1
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: false,
-            centerMode: false,
-            centerPadding: '40px',
-            slidesToShow: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            arrows: false,
-            centerMode: false,
-            centerPadding: '40px',
-            slidesToShow: 1
-          }
-        }
-        ]
-    });
 
 });
 
