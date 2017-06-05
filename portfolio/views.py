@@ -61,7 +61,7 @@ class Blogs(View):
     def get(self, request, *args, **kwargs):
 
         try:
-            posts_list = Project.objects.filter(status="Published")
+            posts_list = Project.objects.filter(status="Published").order_by('-created_date')
         except Project.DoesNotExist:
             return render(request, self.template_name,  {'posts': {}})
 
