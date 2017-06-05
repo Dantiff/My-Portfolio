@@ -8,7 +8,7 @@ from portfolio.models import *
 #
 def make_published(modeladmin, request, queryset):
     queryset.update(status='Published')
-make_published.short_description = "Mark selected project as published"
+make_published.short_description = "Mark selected project module as published"
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):

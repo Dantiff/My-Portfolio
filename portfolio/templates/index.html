@@ -6,6 +6,7 @@
 {%block title %}Portfolio{% endblock %}
 
 {% block content %}
+
 <!-- =========================
     HIGHLIGHT MENU
 ============================== -->
@@ -147,6 +148,7 @@
 </div>
 
 
+
 <!-- =========================
     CAREER ACHIEVEMENTS
 ============================== -->
@@ -167,50 +169,17 @@
                 				<span class="highlight-title">Projects </span>
         		            </div>
                         	<div class="slider portfolio-slider">
-
-                        		<div>
-                        			<h3>1</h3>
-                        		</div>
-                        		<div>
-                        			<div>
-                        			<iframe width="100%" src="//www.youtube.com/embed/ubGpDoyJvmI" frameborder="0" allowfullscreen></iframe>
-                        		</div>
-                        		</div>
-                        		<div>
-                        			<h3>3</h3>
-                        		</div>
-                        		<div>
-                        			<h3>4</h3>
-                        		</div>
+                                {% for p in projects %}
                     			<div class="slider-box gallery">
                     			    <div class="gallery-image col-sm-12">
-                    					<img src="{% static 'images/laravel.png' %}" class="img-responsive" alt="projects">
+                    					<img src="{{ p.image.url }}" class="img-responsive" alt="projects">
                                         <div class="gallery-text">
-                                            <span class="slider-button"><a href="#"> More &raquo; </a></span>
+                                            <p> {{ p.content|truncatechars:50 }} </p>
+                                            <span class="slider-button"><a href="/blog/{{p.slug}}/"> More &raquo; </a></span>
                                         </div>
                     				</div>
                     			</div>
-                        		<div>
-                        			<h3>6</h3>
-                        		</div>
-                        		<div>
-                        			<h3>7</h3>
-                        		</div>
-                        		<div>
-                        			<h3>8</h3>
-                        		</div>
-
-                    			<div class="slider-box gallery">
-                    			    <div class="gallery-image col-sm-12">
-                    					<img src="{% static 'images/laravel.png' %}" class="img-responsive" alt="projects">
-                                        <div class="gallery-text">
-                                            <span class="slider-button"><a href="#"> More &raquo; </a></span>
-                                        </div>
-                    				</div>
-                    			</div>
-                        		<div>
-                        			<h3>10</h3>
-                        		</div>
+                    			{% endfor %}
 
                         	</div>
                         </div>
@@ -228,51 +197,17 @@
                 				<span class="highlight-title">Tutorials </span>
         		            </div>
                         	<div class="slider portfolio-slider">
-
-                        		<div>
-                        			<h3>1</h3>
-                        		</div>
-                        		<div>
-                        			<div>
-                        			<iframe width="100%" src="//www.youtube.com/embed/ubGpDoyJvmI" frameborder="0" allowfullscreen></iframe>
-                        		</div>
-                        		</div>
-                        		<div>
-                        			<h3>3</h3>
-                        		</div>
-                        		<div>
-                        			<h3>4</h3>
-                        		</div>
+                                {% for p in tutorials %}
                     			<div class="slider-box gallery">
                     			    <div class="gallery-image col-sm-12">
-                    					<img src="{% static 'images/laravel.png' %}" class="img-responsive" alt="projects">
+                    					<img src="{{ p.image.url }}" class="img-responsive" alt="projects">
                                         <div class="gallery-text">
-                                            <span class="slider-button"><a href="#"> More &raquo; </a></span>
+                                            <p> {{ p.content|truncatechars:50 }} </p>
+                                            <span class="slider-button"><a href="/blog/{{p.slug}}/"> More &raquo; </a></span>
                                         </div>
                     				</div>
                     			</div>
-                        		<div>
-                        			<h3>6</h3>
-                        		</div>
-                        		<div>
-                        			<h3>7</h3>
-                        		</div>
-                        		<div>
-                        			<h3>8</h3>
-                        		</div>
-
-                    			<div class="slider-box gallery">
-                    			    <div class="gallery-image col-sm-12">
-                    					<img src="{% static 'images/laravel.png' %}" class="img-responsive" alt="projects">
-                                        <div class="gallery-text">
-                                            <span class="slider-button"><a href="#"> More &raquo; </a></span>
-                                        </div>
-                    				</div>
-                    			</div>
-                        		<div>
-                        			<h3>10</h3>
-                        		</div>
-
+                    			{% endfor %}
                         	</div>
                         </div>
                     </section>
@@ -290,51 +225,17 @@
                 				<span class="highlight-title">Blogs </span>
         		            </div>
                         	<div class="slider portfolio-slider ">
-
-                        		<div>
-                        			<h3>1</h3>
-                        		</div>
-                        		<div>
-                        			<div>
-                        			<iframe width="100%" src="//www.youtube.com/embed/ubGpDoyJvmI" frameborder="0" allowfullscreen></iframe>
-                        		</div>
-                        		</div>
-                        		<div>
-                        			<h3>3</h3>
-                        		</div>
-                        		<div>
-                        			<h3>4</h3>
-                        		</div>
+                                {% for p in blogs %}
                     			<div class="slider-box gallery">
                     			    <div class="gallery-image col-sm-12">
-                    					<img src="{% static 'images/laravel.png' %}" class="img-responsive" alt="projects">
+                    					<img src="{{ p.image.url }}" class="img-responsive" alt="projects">
                                         <div class="gallery-text">
-                                            <span class="slider-button"><a href="#"> More &raquo; </a></span>
+                                            <p> {{ p.content|truncatechars:50 }} </p>
+                                            <span class="slider-button"><a href="/blog/{{p.slug}}/"> More &raquo; </a></span>
                                         </div>
                     				</div>
                     			</div>
-                        		<div>
-                        			<h3>6</h3>
-                        		</div>
-                        		<div>
-                        			<h3>7</h3>
-                        		</div>
-                        		<div>
-                        			<h3>8</h3>
-                        		</div>
-
-                    			<div class="slider-box gallery">
-                    			    <div class="gallery-image col-sm-12">
-                    					<img src="{% static 'images/laravel.png' %}" class="img-responsive" alt="projects">
-                                        <div class="gallery-text">
-                                            <span class="slider-button"><a href="#"> More &raquo; </a></span>
-                                        </div>
-                    				</div>
-                    			</div>
-                        		<div>
-                        			<h3>10</h3>
-                        		</div>
-
+                    			{% endfor %}
                         	</div>
                         </div>
                     </section>

@@ -12,7 +12,17 @@ class Index(View):
     form_class = MessageForm
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+
+        try:
+            all_projects = Project.objects.all()
+        except Project.DoesNotExist:
+            return render(request, self.template_name,  {'projects': {}, 'tutorials': {}, 'blogs': {}, })
+
+        projects = Project.objects.filter(category='Project')
+        tutorials = Project.objects.filter(category='Tutorial')
+        blogs = Project.objects.filter(category='Blog')
+
+        return render(request, self.template_name,  {'projects': projects, 'tutorials': tutorials, 'blogs': blogs, })
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)

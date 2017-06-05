@@ -48,7 +48,7 @@ class Project(models.Model):
         ('Withdrawn', 'Withdrawn'),
     )
     title = models.CharField(max_length=200)
-    author = models.OneToOneField(User)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=80, unique=True)
     content = models.TextField()
     image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
