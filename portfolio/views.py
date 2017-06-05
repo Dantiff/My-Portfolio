@@ -2,6 +2,7 @@ import os, tempfile, zipfile
 from wsgiref.util import FileWrapper
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.mail import send_mail
 from django.views import View
 from portfolio.forms import *
@@ -58,15 +59,23 @@ class Blogs(View):
     template_name = 'blogs.html'
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
 
-    def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            # <process form cleaned data>
-            return HttpResponseRedirect('/success/')
+        try:
+            posts_list = Project.objects.filter(status="Published")
+        except Project.DoesNotExist:
+            return render(request, self.template_name,  {'posts': {}})
 
-        return render(request, self.template_name, {'form': form})
+        paginator = Paginator(posts_list, 5)
+
+        page = request.GET.get('page')
+        try:
+            posts = paginator.page(page)
+        except PageNotAnInteger:
+            posts = paginator.page(1)
+        except EmptyPage:
+            posts = paginator.page(paginator.num_pages)
+
+        return render(request, self.template_name,  {'posts': posts })
 
 
 

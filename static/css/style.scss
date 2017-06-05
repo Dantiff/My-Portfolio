@@ -35,6 +35,9 @@ body {
 .text-grey {
     color: #8c8c8c;
 }
+.text-grey1 {
+    color: #bfbfbf;
+}
 .text-black {
     color: black;
 }
@@ -589,6 +592,78 @@ body {
 }
 
 
+
+/*---------------------------------------
+    Blogs Page
+-----------------------------------------*/
+
+#blog-post {
+    background: #0d0d0d;
+}
+.blog-post {
+    float: left;
+    margin: 5px !important;
+    padding: 10px 0 10px 0;
+}
+.blog-post-image {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 125px;
+}
+.blog-post-image img {
+    height: 100%;
+    width: 100%;
+}
+.post-title {
+    font-family: 'Open Sans','sans-serif';
+    font-size: 22px;
+    font-weight: 600;
+    margin: -5px 0 5px 0;
+    line-height: 34px;
+}
+.blog-post-meta {
+    display: block;
+    float: left;
+    height: auto;
+    margin: 0;
+    position: relative;
+}
+.blog-post-content {
+    width: 100%;
+    position: relative;
+    float: left;
+    display: block;
+    height: auto;
+    padding-top: 5px;
+}
+.blog-post-content a {
+    color: inherit !important;
+}
+.title-border {
+    background: url("../images/title-border.png") repeat scroll 0 0 transparent;
+    height: 3px;
+    position: relative;
+    width: 100%;
+    margin: -15px 0 15px 0;
+}
+.title-block {
+    background: #77a6ee;
+    height: 3px;
+    width: 10%;
+    float: left;
+}
+.post-tag {
+    padding: 0 10px 0 0;
+}
+.post-tag-icon {
+    padding: 10px 7px 10px 0px ;
+}
+.pagination {
+    width: 100%;
+}
 
 /*---------------------------------------
     Flexible styles

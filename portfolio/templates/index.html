@@ -157,8 +157,8 @@
         <div class="">
 			<header class="major">
 				<h2>Career Achievements</h2>
-				 <p class="plain-text"><span class="italic text-grey"><strong class="text-white">"</strong> Just solving problems is not enough. Rather, solving problems with an end goal is what matters to me.<strong class="text-white">" </strong></span> Below include a highlight of the blogs, tutorials, and projects which I have greatly contributed in as a leverage to promote positive thinking and manifesto change within the society.</p>
 			</header>
+			<p class="plain-text text-grey"><span class="italic text-grey1"><strong class="text-white">"</strong> Just solving problems is not enough. Rather, solving problems with an end goal is what matters to me.<strong class="text-white">" </strong></span> Below include a highlight of the blogs, tutorials, and projects which I have greatly contributed in as a leverage to promote positive thinking and manifesto change within the society.</p>
 
     		<div class="row">
 
@@ -175,7 +175,13 @@
                     					<img src="{{ p.image.url }}" class="img-responsive" alt="projects">
                                         <div class="gallery-text">
                                             <p> {{ p.content|truncatechars:50 }} </p>
-                                            <span class="slider-button"><a href="/blog/{{p.slug}}/"> More &raquo; </a></span>
+                                            <span class="slider-button">
+                                			    {% if p.category == 'Blog' %}
+                                			    <a href="/{{ p.slug }}/"> More &raquo; </a>
+                                			    {% else %}
+                                			    <a href="{{ p.url }}" target="_blank"> More &raquo; </a>
+                                			    {% endif %}
+                                            </span>
                                         </div>
                     				</div>
                     			</div>
@@ -203,7 +209,13 @@
                     					<img src="{{ p.image.url }}" class="img-responsive" alt="projects">
                                         <div class="gallery-text">
                                             <p> {{ p.content|truncatechars:50 }} </p>
-                                            <span class="slider-button"><a href="/blog/{{p.slug}}/"> More &raquo; </a></span>
+                                            <span class="slider-button">
+                                			    {% if p.category == 'Blog' %}
+                                			    <a href="/{{ p.slug }}/"> More &raquo; </a>
+                                			    {% else %}
+                                			    <a href="{{ p.url }}" target="_blank"> More &raquo; </a>
+                                			    {% endif %}
+                                            </span>
                                         </div>
                     				</div>
                     			</div>
@@ -231,7 +243,13 @@
                     					<img src="{{ p.image.url }}" class="img-responsive" alt="projects">
                                         <div class="gallery-text">
                                             <p> {{ p.content|truncatechars:50 }} </p>
-                                            <span class="slider-button"><a href="/blog/{{p.slug}}/"> More &raquo; </a></span>
+                                            <span class="slider-button">
+                                			    {% if p.category == 'Blog' %}
+                                			    <a href="/{{ p.slug }}/"> More &raquo; </a>
+                                			    {% else %}
+                                			    <a href="{{ p.url }}" target="_blank"> More &raquo; </a>
+                                			    {% endif %}
+                                			</span>
                                         </div>
                     				</div>
                     			</div>

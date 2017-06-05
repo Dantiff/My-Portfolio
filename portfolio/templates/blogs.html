@@ -13,17 +13,78 @@
     ABOUT ME
 ============================== -->
 
-<div class="row highlight-container" id="about-me">
-    <div class="wow fadeInLeft col-md-12 col-sm-10" data-wow-delay="0.6s">
-        <div class="content">
+<div class="row highlight-container" id="blogs-page">
+    <div class="col-md-12 col-sm-10">
+        <div class="">
 			<header class="major">
-				<h2>About Me</h2>
-				<p class="text-white">Full stack web developer</p>
+				<h2>Latest Blog</h2>
+				<div class="title-border">
+				    <div class="title-block"></div>
+				</div>
 			</header>
 			<div>
-                <div class="text-grey text-block"> <span class="dropcapsimple">W</span>elcome, my name is Daniel. I am a software developer from Nairobi, Kenya who loves to write software to build great products and help businesses succeed with their goals. I appreciate good design and I am seeing it's importance more then ever in todays apps, web sites and products.<br></div>
-                <div class="text-grey text-block"><span class="dropcapsimple">I</span> am an aspiring entrepreneur who subscribes to the lean startup ideology and have a career aspiration to leverage strong academic and professional knowledge to enhance the provision of quality services and contribute significantly to strategic goals and objectives within organizations and the overall society.</div>
-                <div class="text-grey text-block"><span class="dropcapsimple">I</span> have been working professionally in software development since 2015 in the web app spaces with experience across the finance, cash management, human resources and media domains. I occasionally dabble in blog writting and tutorial making.</div>
+			    {% for p in posts %}
+                <div class="row blog-post" id="blog-post">
+                    <div class="col-sm-12">
+            			<div class="float-left col-md-3 col-sm-8">
+            			    <div class="blog-post-image">
+            					<img src="{{ p.image.url }}" class="img-responsive" alt="{{ p.title }}">
+            				</div>
+            			</div>
+            			<div  class="float-right col-md-9 col-sm-8">
+                			<div class="blog-post-title" >
+                			    <h2 class="post-title">
+                    			    {% if p.category == 'Blog' %}
+                    			    <a href="/{{ p.slug }}/">{{ p.title }}</a>
+                    			    {% else %}
+                    			    <a href="{{ p.url }}" target="_blank" >{{ p.title }}</a>
+                    			    {% endif %}
+                			    </h2>
+                			</div>
+
+                			<div class="blog-post-meta" >
+                			    <span class="post-tag">
+                			        <a href="#"><i class="post-tag-icon fa fa-user"></i>{{ p.author }}</a>
+                			    </span>
+                			    <span class="post-tag">
+                			        <a href="#"><i class="post-tag-icon fa fa-clock-o"></i>{{ p.created_date|date:"M d, Y" }}</a>
+                			    </span>
+                			    <span class="post-tag">
+                			        <a href="#"><i class="post-tag-icon fa fa-tag"></i>{{ p.domain }}</a>
+                			    </span>
+                			    <span class="post-tag">
+                			        <a href="#"><i class="post-tag-icon fa fa-comments-o"></i>22</a>
+                			    </span>
+                			</div>
+            			</div>
+                    </div>
+                    <div class="col-sm-12">
+            			<div class="blog-post-content col-md-12 col-sm-8">
+            			    {% if p.category == 'Blog' %}
+            			    <a href="/{{ p.slug }}/">{{ p.content|truncatechars:300 }}</a>
+            			    {% else %}
+            			    <a href="{{ p.url }}" target="_blank" >{{ p.content|truncatechars:300 }}</a>
+            			    {% endif %}
+            			</div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="pagination row blog-post" id="blog-post">
+                    <span class="step-links">
+                        {% if posts.has_previous %}
+                            <a href="?page={{ posts.previous_page_number }}">previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+                        </span>
+
+                        {% if posts.has_next %}
+                            <a href="?page={{ posts.next_page_number }}">next</a>
+                        {% endif %}
+                    </span>
+                </div>
             </div>
 		</div>
     </div>
