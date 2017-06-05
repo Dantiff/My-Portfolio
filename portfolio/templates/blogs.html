@@ -35,7 +35,7 @@
                 			<div class="blog-post-title" >
                 			    <h2 class="post-title">
                     			    {% if p.category == 'Blog' %}
-                    			    <a href="/{{ p.slug }}/">{{ p.title }}</a>
+                    			    <a href="/blogs/{{ p.slug }}/">{{ p.title }}</a>
                     			    {% else %}
                     			    <a href="{{ p.url }}" target="_blank" >{{ p.title }}</a>
                     			    {% endif %}
@@ -61,7 +61,7 @@
                     <div class="col-sm-12">
             			<div class="blog-post-content col-md-12 col-sm-8">
             			    {% if p.category == 'Blog' %}
-            			    <a href="/{{ p.slug }}/">{{ p.content|truncatechars:300 }}</a>
+            			    <a href="/blogs/{{ p.slug }}/">{{ p.content|truncatechars:300 }}</a>
             			    {% else %}
             			    <a href="{{ p.url }}" target="_blank" >{{ p.content|truncatechars:300 }}</a>
             			    {% endif %}

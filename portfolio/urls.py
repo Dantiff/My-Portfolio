@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^$', Index.as_view()),
     url(r'^resume/download/$', Resume.as_view()),
     url(r'^blogs/$', Blogs.as_view()),
+    url(r'^blogs/(?P<slug>\w+)/$', Blog.as_view()),
 ]
 
 

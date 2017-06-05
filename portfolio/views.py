@@ -56,14 +56,14 @@ class Index(View):
 
 
 class Blogs(View):
-    template_name = 'blogs.html'
+    blogs_template = 'blogs.html'
 
     def get(self, request, *args, **kwargs):
 
         try:
             posts_list = Project.objects.filter(status="Published").order_by('-created_date')
         except Project.DoesNotExist:
-            return render(request, self.template_name,  {'posts': {}})
+            return render(request, self.blogs_template,  {'posts': {}})
 
         paginator = Paginator(posts_list, 5)
 
@@ -75,7 +75,23 @@ class Blogs(View):
         except EmptyPage:
             posts = paginator.page(paginator.num_pages)
 
-        return render(request, self.template_name,  {'posts': posts })
+        return render(request, self.blogs_template,  {'posts': posts })
+
+
+
+class Blog(View):
+    blog_template = 'blog.html'
+
+    def get(self, request, *args, **kwargs):
+
+        slug = self.kwargs['slug']
+
+        try:
+            post = Project.objects.get(slug=slug)
+        except Project.DoesNotExist:
+            return render(request, self.blog_template,  {'post': {}})
+
+        return render(request, self.blog_template,  {'post': post })
 
 
 

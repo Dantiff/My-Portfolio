@@ -1,0 +1,71 @@
+
+{% extends 'base.html' %}
+
+{% load static from staticfiles %}
+
+{%block title %} {{ post.title }} {% endblock %}
+
+{% block content %}
+
+
+
+<!-- =========================
+    ABOUT ME
+============================== -->
+
+<div class="row highlight-container" id="blogs-page">
+    <div class="col-md-12 col-sm-10">
+        <div class="">
+			<header class="major">
+				<h2><a href="/blogs/">Blogs</a><span class="blog-mini-title"> / {{ post.title }} </span></h3>
+				<div class="title-border">
+				    <div class="title-block"></div>
+				</div>
+			</header>
+			<div>
+                <div class="row blog-post" id="blog-post">
+                    <div class="col-sm-12" id="{{ post.slug }}">
+            			<div class="float-left col-md-3 col-sm-8">
+            			    <div class="blog-post-image">
+            					<img src="{{ post.image.url }}" class="img-responsive" alt="{{ post.title }}">
+            				</div>
+            			</div>
+            			<div  class="float-right col-md-9 col-sm-8">
+                			<div class="blog-post-title" >
+                			    <h2 class="post-title">
+                    			    {{ post.title }}
+                			    </h2>
+                			</div>
+
+                			<div class="blog-post-meta" >
+                			    <span class="post-tag">
+                			        <a href="#"><i class="post-tag-icon fa fa-user"></i>{{ post.author }}</a>
+                			    </span>
+                			    <span class="post-tag">
+                			        <a href="#"><i class="post-tag-icon fa fa-clock-o"></i>{{ post.created_date|date:"M d, Y" }}</a>
+                			    </span>
+                			    <span class="post-tag">
+                			        <a href="#"><i class="post-tag-icon fa fa-tag"></i>{{ post.domain }}</a>
+                			    </span>
+                			    <span class="post-tag">
+                			        <a href="#"><i class="post-tag-icon fa fa-comments-o"></i>22</a>
+                			    </span>
+                			</div>
+            			</div>
+                    </div>
+                    <div class="col-sm-12">
+            			<div class="blog-post-content col-md-12 col-sm-8">
+            			    {{ post.content }}
+            			</div>
+                    </div>
+                </div>
+
+            </div>
+		</div>
+    </div>
+
+</div>
+
+
+{% endblock %}
+
