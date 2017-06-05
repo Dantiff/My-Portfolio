@@ -17,6 +17,19 @@ $(window).scroll(function() {
 });
 
 
+ /* Change side navigation based on page
+  -----------------------------------------------*/
+$(window).load(function(){
+    var changeNav = false;
+    if (url = "http://bivestinc.pythonanywhere.com/") {
+        changeNav = false;
+    }else {
+        changeNav = true;
+    }
+});
+
+
+
 /* HTML document is loaded. DOM is ready.
 -------------------------------------------*/
 $(document).ready(function() {

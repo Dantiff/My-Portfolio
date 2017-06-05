@@ -25,7 +25,7 @@
 			<div>
 			    {% for p in posts %}
                 <div class="row blog-post" id="blog-post">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12" id="{{ p.slug }}">
             			<div class="float-left col-md-3 col-sm-8">
             			    <div class="blog-post-image">
             					<img src="{{ p.image.url }}" class="img-responsive" alt="{{ p.title }}">

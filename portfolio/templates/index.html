@@ -60,7 +60,7 @@
 				<p class="text-white">Full stack web developer</p>
 			</header>
 			<div>
-                <div class="text-grey text-block"> <span class="dropcapsimple">W</span>elcome, my name is Daniel. I am a software developer from Nairobi, Kenya who loves to write software to build great products and help businesses succeed with their goals. I appreciate good design and I am seeing it's importance more then ever in todays apps, web sites and products.<br></div>
+                <div class="text-grey text-block"> <span class="dropcapsimple">W</span>elcome, my name is Daniel. I am a software developer from Nairobi, Kenya who loves to write software to build great products and help businesses succeed with their goals. I appreciate good design and I am seeing it's importance more than ever in todays apps, web sites and products.<br></div>
                 <div class="text-grey text-block"><span class="dropcapsimple">I</span> am an aspiring entrepreneur who subscribes to the lean startup ideology and have a career aspiration to leverage strong academic and professional knowledge to enhance the provision of quality services and contribute significantly to strategic goals and objectives within organizations and the overall society.</div>
                 <div class="text-grey text-block"><span class="dropcapsimple">I</span> have been working professionally in software development since 2015 in the web app spaces with experience across the finance, cash management, human resources and media domains. I occasionally dabble in blog writting and tutorial making.</div>
             </div>
@@ -176,11 +176,7 @@
                                         <div class="gallery-text">
                                             <p> {{ p.content|truncatechars:50 }} </p>
                                             <span class="slider-button">
-                                			    {% if p.category == 'Blog' %}
-                                			    <a href="/{{ p.slug }}/"> More &raquo; </a>
-                                			    {% else %}
-                                			    <a href="{{ p.url }}" target="_blank"> More &raquo; </a>
-                                			    {% endif %}
+                                			    <a href="/blogs/#{{ p.slug }}"> More &raquo; </a>
                                             </span>
                                         </div>
                     				</div>
@@ -210,11 +206,7 @@
                                         <div class="gallery-text">
                                             <p> {{ p.content|truncatechars:50 }} </p>
                                             <span class="slider-button">
-                                			    {% if p.category == 'Blog' %}
-                                			    <a href="/{{ p.slug }}/"> More &raquo; </a>
-                                			    {% else %}
-                                			    <a href="{{ p.url }}" target="_blank"> More &raquo; </a>
-                                			    {% endif %}
+                                			    <a href="/blogs/#{{ p.slug }}"> More &raquo; </a>
                                             </span>
                                         </div>
                     				</div>
@@ -244,11 +236,7 @@
                                         <div class="gallery-text">
                                             <p> {{ p.content|truncatechars:50 }} </p>
                                             <span class="slider-button">
-                                			    {% if p.category == 'Blog' %}
-                                			    <a href="/{{ p.slug }}/"> More &raquo; </a>
-                                			    {% else %}
-                                			    <a href="{{ p.url }}" target="_blank"> More &raquo; </a>
-                                			    {% endif %}
+                                			    <a href="/blogs/#{{ p.slug }}"> More &raquo; </a>
                                 			</span>
                                         </div>
                     				</div>

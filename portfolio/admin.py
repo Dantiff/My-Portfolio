@@ -18,7 +18,7 @@ class ProjectAdmin(admin.ModelAdmin):
         }),
         ('Advanced options', {
             'classes': ('collapse',),
-            'fields': ('status', 'domain',),
+            'fields': ('status', 'domain', 'created_date'),
         }),
     )
     list_display = ['author', 'category', 'title', 'status', 'created_date' ]
