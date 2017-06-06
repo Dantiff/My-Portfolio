@@ -17,15 +17,18 @@ class Index(View):
     def get(self, request, *args, **kwargs):
 
         try:
-            all_projects = Project.objects.all()
+            posts_list = Project.objects.filter(status="Published").order_by('-created_date')
         except Project.DoesNotExist:
-            return render(request, self.template_name,  {'projects': {}, 'tutorials': {}, 'blogs': {}, })
+
+            messages.warning(request, 'Sorry, system our of reach.')
+
+            return render(request, self.template_name,  {'recent_posts': {}, 'projects': {}, 'tutorials': {}, 'blogs': {}, })
 
         projects = Project.objects.filter(category='Project')
         tutorials = Project.objects.filter(category='Tutorial')
         blogs = Project.objects.filter(category='Blog')
 
-        return render(request, self.template_name,  {'projects': projects, 'tutorials': tutorials, 'blogs': blogs, })
+        return render(request, self.template_name,  {'recent_posts': posts_list, 'projects': projects, 'tutorials': tutorials, 'blogs': blogs, })
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -55,6 +58,7 @@ class Index(View):
             return HttpResponseRedirect('/')
 
         messages.error(request, 'Error posting message. Please check that you have filled all fields correctly.')
+
         return render(request, self.template_name, {'form': form})
 
 
@@ -67,7 +71,10 @@ class Blogs(View):
         try:
             posts_list = Project.objects.filter(status="Published").order_by('-created_date')
         except Project.DoesNotExist:
-            return render(request, self.blogs_template,  {'posts': {}})
+
+            messages.warning(request, 'Sorry, system out of reach.')
+
+            return render(request, self.blogs_template,  {'posts': {}, 'recent_posts': {} })
 
         paginator = Paginator(posts_list, 5)
 
@@ -79,7 +86,7 @@ class Blogs(View):
         except EmptyPage:
             posts = paginator.page(paginator.num_pages)
 
-        return render(request, self.blogs_template,  {'posts': posts })
+        return render(request, self.blogs_template,  {'posts': posts, 'recent_posts': posts_list })
 
 
 
@@ -88,14 +95,26 @@ class Blog(View):
 
     def get(self, request, *args, **kwargs):
 
+
+        try:
+            posts_list = Project.objects.filter(status="Published").order_by('-created_date')
+        except Project.DoesNotExist:
+
+            messages.warning(request, 'Sorry, system out of reach.')
+
+            return render(request, self.blog_template,  {'recent_posts': {}, 'post': {}})
+
         slug = self.kwargs['slug']
 
         try:
             post = Project.objects.get(slug=slug)
         except Project.DoesNotExist:
-            return render(request, self.blog_template,  {'post': {}})
 
-        return render(request, self.blog_template,  {'post': post })
+            messages.warning(request, 'Sorry, we could not retrieve the requested post.')
+
+            return render(request, self.blog_template,  {'recent_posts': {}, 'post': {}})
+
+        return render(request, self.blog_template,  {'recent_posts': posts_list, 'post': post })
 
 
 

@@ -125,7 +125,7 @@ body {
 
 
 /*---------------------------------------
-          Navigation One
+          Navigation Two
 -----------------------------------------*/
 .header-two {
     padding: 2em 2em 0em 2em !important;
@@ -144,12 +144,43 @@ body {
     border-top: 0 !important;
     display: inline-block !important;
     padding: 0;
-    width: 48%;
+    width: 100%;
 }
-
 .nav-two ul li a {
     padding: 0.5em 0 !important;
 }
+.recent-posts ul li {
+    width: 100% !important;
+    text-align: left;
+    border-bottom: 1px dotted #676666;
+}
+.recent-posts ul li:first-child {
+    border-top: 1px dotted #676666 !important;
+    margin-top: 5px;
+}
+.recent-posts ul li:last-child {
+    border-bottom: 0 !important;
+}
+.recent-posts ul {
+    list-style: none;
+}
+.recent-posts ul li {
+    display: flex !important;
+}
+.recent-posts ul li:before {
+
+	display:	inline-block;
+  	width:		0;
+  	height:		0;
+	border-top:		solid transparent;
+	border-bottom: 	solid transparent;
+	border-left: solid #777;
+	border-width:	5px;
+	content:	' ';
+	margin: 12px 10px 0 0;
+}
+
+
 
 /*---------------------------------------
     Wrapper
