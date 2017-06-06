@@ -85,7 +85,8 @@
                 NAVIGATION SECTION
             ============================== -->
         	<section class="col-md-3" id="header">
-        		<header>
+        	    {% if request.path == "/" %}
+        		<header class="nav-one">
         			<a href="/">
         			    <div class="col-md-12 col-sm-12">
                 		    <span class="col-md-12 col-sm-12 avatar-image"></span>
@@ -96,7 +97,7 @@
         			Front and Backend Web Development, Cyber Security <br />
         			Cloud Computing, Information Tech Management: Nairobi, Kenya. </p>
         		</header>
-        		<nav id="nav">
+        		<nav id="nav" class="nav-one">
         			<ul>
         				<li><a href="/#about-me" class="active">About Me</a></li>
         				<li><a href="/#skills-highlight">Skills Highlight </a></li>
@@ -104,6 +105,37 @@
         				<li><a href="/#contact-me">Contact</a></li>
         			</ul>
         		</nav>
+        		{% else %}
+        		<header class="nav-two header-two">
+        			<a href="/">
+        			    <div class="col-md-6 col-sm-6">
+                		    <span class="col-md-12 col-sm-12 avatar-image"></span>
+                		</div>
+        			    <div class="col-md-6 col-sm-6">
+                		    <h1 id="logo"><a href="/"class="name">Daniel Mburu</a></h1>
+                		</div>
+        			</a>
+        			<div class="clearfix"></div>
+        		</header>
+
+				<div class="title-border nav-two-border">
+				    <div class="title-block"></div>
+				</div>
+
+        		<nav id="nav" class="nav-two">
+        			<p><strong>Software Engineer</strong></p>
+        			<ul>
+        				<li><a href="/#about-me">About Me</a></li>
+        				<li><a href="/#skills-highlight">Skills Highlight </a></li>
+        				<li><a href="/#career-achievements">Career Achievements</a></li>
+        				<li><a href="/#contact-me">Contact</a></li>
+        			</ul>
+    				<div class="title-border nav-two-border">
+    				    <div class="title-block"></div>
+    				</div>
+        		</nav>
+
+        		{% endif %}
         		<footer id="icon-footer">
                     <p class="social">
                                     <a href="https://github.com/Dantiff" target="_blank" class="external github" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-github"></i></a>

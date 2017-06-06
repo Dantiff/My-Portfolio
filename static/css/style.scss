@@ -89,6 +89,10 @@ body {
     background: #1a75ff;
 }
 
+.alert-message .warning {
+    background: #ffff80;
+}
+
 
 
 
@@ -119,6 +123,33 @@ body {
     font-size: 24px;
 }
 
+
+/*---------------------------------------
+          Navigation One
+-----------------------------------------*/
+.header-two {
+    padding: 2em 2em 0em 2em !important;
+}
+.nav-two-border{
+    margin: 1em 0 1em 0 !important;
+}
+.nav-two p {
+    margin: 0 !important;
+}
+.nav-two .avatar-image {
+	height: 6.5em;
+	width: 100%;
+}
+.nav-two ul li {
+    border-top: 0 !important;
+    display: inline-block !important;
+    padding: 0;
+    width: 48%;
+}
+
+.nav-two ul li a {
+    padding: 0.5em 0 !important;
+}
 
 /*---------------------------------------
     Wrapper
@@ -744,6 +775,9 @@ body {
     }
     .avatar-image {
     	height: 9em;
+    }
+    .nav-two .avatar-image {
+    	height: 8em;
     }
     .home-image {
         width: 100%;
