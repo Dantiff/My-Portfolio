@@ -137,7 +137,7 @@
         			<span class="recent-posts">
         			    <ol>
                 			<ul>
-            			        {% for p in posts %}
+            			        {% for p in recent_posts %}
                 				<li><a href="/blogs/#{{ p.slug }}">{{ p.title }}</a></li>
                 				{% endfor %}
                 			</ul>
@@ -153,6 +153,18 @@
                 				<li><a href="#">Projects</a></li>
                 				<li><a href="#">Tutorials </a></li>
                 				<li><a href="#">Blogs</a></li>
+                			</ul>
+        			    </ol>
+        			</span>
+    				<div class="title-border nav-two-border">
+    				    <div class="title-block"></div>
+    				</div>
+        			<p><strong>Members</strong></p>
+        			<span class="recent-posts">
+        			    <ol>
+                			<ul>
+                				<li><a href="/admin/">Login</a></li>
+                				<li><a href="#">Subscribe to Blog </a></li>
                 			</ul>
         			    </ol>
         			</span>

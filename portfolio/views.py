@@ -86,7 +86,7 @@ class Blogs(View):
         except EmptyPage:
             posts = paginator.page(paginator.num_pages)
 
-        return render(request, self.blogs_template,  {'posts': posts, 'recent_posts': posts_list })
+        return render(request, self.blogs_template,  {'posts': posts, 'recent_posts': posts })
 
 
 
@@ -104,6 +104,16 @@ class Blog(View):
 
             return render(request, self.blog_template,  {'recent_posts': {}, 'post': {}})
 
+        paginator = Paginator(posts_list, 5)
+
+        page = request.GET.get('page')
+        try:
+            posts = paginator.page(page)
+        except PageNotAnInteger:
+            posts = paginator.page(1)
+        except EmptyPage:
+            posts = paginator.page(paginator.num_pages)
+
         slug = self.kwargs['slug']
 
         try:
@@ -114,7 +124,7 @@ class Blog(View):
 
             return render(request, self.blog_template,  {'recent_posts': {}, 'post': {}})
 
-        return render(request, self.blog_template,  {'recent_posts': posts_list, 'post': post })
+        return render(request, self.blog_template,  {'recent_posts': posts, 'post': post })
 
 
 
