@@ -71,10 +71,30 @@ body {
     font-size: 1em !important;
     font-weight: 500 !important;
 }
+
+
+
+/*---------------------------------------
+          Alert Messages
+-----------------------------------------*/
+.alert-message .error {
+    background: #ff3333;
+}
+
+.alert-message .success {
+    background: #009900;
+}
+
+.alert-message .info {
+    background: #1a75ff;
+}
+
+
+
+
 /*---------------------------------------
           Navigation One
 -----------------------------------------*/
-
 
 .avatar-image {
 	background: url("../images/avatar1.jpg");
@@ -157,6 +177,9 @@ body {
     font-size: 22px;
     padding: 3px 0 0 10px;
 }
+.highlight-title a{
+    color: #ffffff;
+}
 .highlight-cotent {
     text-align: center;
 }
@@ -167,6 +190,16 @@ body {
 .highlight-link a:hover {
 			color: blue !important;
 		}
+.download-icon {
+    background: white;
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    text-align: center;
+}
+.download-icon-i {
+    padding-top: 5px;
+}
 
 
 /*---------------------------------------

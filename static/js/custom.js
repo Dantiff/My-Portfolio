@@ -52,7 +52,9 @@ $(document).ready(function() {
         slidesToScroll: 1,
         autoplay: true,
         arrows: false,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 7000,
+        centerMode: false,
+        centerPadding: '60px',
         responsive: [{
             breakpoint: 992,
             settings: {
@@ -67,7 +69,7 @@ $(document).ready(function() {
             settings: {
                 arrows: true,
                 centerMode: true,
-                centerPadding: '40px',
+                centerPadding: '60px',
                 slidesToShow: 2
 
             }
@@ -134,7 +136,6 @@ $(document).ready(function() {
     });
 
 });
-
 
 
   /* Back top

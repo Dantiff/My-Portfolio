@@ -7,6 +7,8 @@ from django.core.mail import send_mail
 from django.views import View
 from portfolio.forms import *
 from portfolio.models import *
+from django.contrib import messages
+
 
 class Index(View):
     template_name = 'index.html'
@@ -49,8 +51,10 @@ class Index(View):
             #    ['danielmburu674@gmail.com'],
             #    fail_silently=False,
             #)
+            messages.success(request, 'Message sent successfully. I will get back to you as soon as I can. Thank you.')
             return HttpResponseRedirect('/')
 
+        messages.error(request, 'Error posting message. Please check that you have filled all fields correctly.')
         return render(request, self.template_name, {'form': form})
 
 
