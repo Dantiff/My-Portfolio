@@ -9,3 +9,11 @@ class MessageForm(forms.Form):
     email = forms.EmailField(max_length=100)
     subject = forms.CharField(max_length=200)
     message = forms.CharField(max_length=300)
+
+
+class SubscribeForm(forms.Form):
+
+    name = forms.CharField(max_length=200)
+    email = forms.EmailField(max_length=200)
+    website = forms.URLField(max_length=200, required=False)
+

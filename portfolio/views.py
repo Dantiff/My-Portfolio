@@ -8,6 +8,7 @@ from django.views import View
 from portfolio.forms import *
 from portfolio.models import *
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 
 class Index(View):
@@ -39,14 +40,35 @@ class Index(View):
             subject=form.cleaned_data['subject'],
             message=form.cleaned_data['message'],
 
+            #If user instance doesnotexist, create new
+            try:
+                user = User.objects.get(email=email)
+            except User.DoesNotExist:
+                user = User(
+                    username=name,
+                    email=email
+                    )
+                user.save()
+
+            #If profile instance doesnotexist, create new
+            try:
+                profile = Profile.objects.get(user=user)
+            except Profile.DoesNotExist:
+                profile = Profile(
+                    user=user,
+                    subscribed=True
+                    )
+                profile.save()
+
+            #Save the message instance
             message = Message(
-            name=name,
-            email=email,
-            subject=subject,
-            message=message,
-            )
+                user=user,
+                subject=subject,
+                message=message,
+                )
             message.save()
 
+            #Send mail to me
             #send_mail(
             #    subject,
             #    message,
@@ -59,7 +81,68 @@ class Index(View):
 
         messages.error(request, 'Error posting message. Please check that you have filled all fields correctly.')
 
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {'message_form': form})
+
+
+
+class Subscribe(View):
+    form_class = SubscribeForm
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+
+            name=form.cleaned_data['name'],
+            email=form.cleaned_data['email'],
+            website=form.cleaned_data['website'],
+
+            #If user instance doesnotexist, create new
+            try:
+                user = User.objects.get(email=email)
+            except User.DoesNotExist:
+                user = User(
+                    username=name,
+                    email=email
+                    )
+                user.save()
+
+            #If profile instance doesnotexist, create new
+            try:
+                profile = Profile.objects.get(user=user)
+            except Profile.DoesNotExist:
+                profile = Profile(
+                    user=user,
+                    subscribed=True,
+                    website=website
+                    )
+                profile.save()
+
+            #Subscribe using the already existing profile instance
+            profile.subscribe(Profile)
+
+            messages.success(request, 'Subscription successful! I shall be happy to notify you once a new post is made.')
+            return HttpResponseNotModified()
+
+        messages.error(request, 'Error subscribing. Please check that you have filled all fields correctly.')
+
+        return HttpResponseNotModified()
+
+
+
+class UnSubscribe(View):
+
+    def post(self, request, *args, **kwargs):
+
+        user = request.POST.get(user)
+
+        profile = Profile.objects.get(user=user)
+
+        profile.unsubscribe(Profile)
+
+        messages.success(request, 'Successfully Unsubsribed I.')
+        return HttpResponseNotModified()
+
+
 
 
 

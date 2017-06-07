@@ -7,8 +7,26 @@ from django.utils import timezone
 
 
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, related_name='profile_user')
+    subscribed = models.BooleanField(default=True)
+    website = models.URLField(max_length=200, blank=True, null=True)
+    created_date = models.DateTimeField(default=timezone.now)
+    remove_date = models.DateTimeField(blank=True, null=True)
+
+    def subscribe(self):
+        self.subscribed = True
+        self.save()
+
+    def unsubscribe(self):
+        self.subscribed = False
+        self.save()
+
+    def __str__(self):
+        return self.user
+
 class Message(models.Model):
-    name = models.CharField(max_length=200)
+    user = models.ForeignKey(User, related_name='message_user', on_delete=models.CASCADE, null=True)
     email = models.CharField(max_length=200)
     subject = models.TextField()
     message = models.TextField()
@@ -76,6 +94,14 @@ class Comment(models.Model):
     user_email = models.CharField(max_length=100)
     user_website = models.URLField(max_length=200)
     comment=models.TextField()
+    show = models.BooleanField(default=True)
+    created_date = models.DateTimeField(default=timezone.now)
+    remove_date = models.DateTimeField(blank=True, null=True)
 
     def __unicode__(self):
         return '%s' % (self.comment)
+
+    def remove(self):
+        self.show = False
+        self.remove_date = timezone.now()
+        self.save()
