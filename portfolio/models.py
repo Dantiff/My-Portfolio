@@ -9,6 +9,7 @@ from django.utils import timezone
 
 class Profile(models.Model):
     user = models.OneToOneField(User, related_name='profile_user')
+    profile_name = models.CharField(max_length=200, null=True)
     subscribed = models.BooleanField(default=True)
     website = models.URLField(max_length=200, blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)

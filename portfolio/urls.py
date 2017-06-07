@@ -21,7 +21,6 @@ from portfolio.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', Index.as_view()),
-    url(r'^users/subscribe/$', Subscribe.as_view()),
     url(r'^users/unsubscribe/$', UnSubscribe.as_view()),
     url(r'^resume/download/$', Resume.as_view()),
     url(r'^blogs/$', Blogs.as_view()),

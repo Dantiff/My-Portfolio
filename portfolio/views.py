@@ -1,7 +1,7 @@
 import os, tempfile, zipfile
 from wsgiref.util import FileWrapper
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotModified
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.mail import send_mail
 from django.views import View
@@ -23,15 +23,30 @@ class Index(View):
 
             messages.warning(request, 'Sorry, system our of reach.')
 
-            return render(request, self.template_name,  {'recent_posts': {}, 'projects': {}, 'tutorials': {}, 'blogs': {}, })
+            return render(request, self.template_name,  {'message_form': self.form_class, 'recent_posts': {}, 'projects': {}, 'tutorials': {}, 'blogs': {}, })
 
         projects = Project.objects.filter(category='Project')
         tutorials = Project.objects.filter(category='Tutorial')
         blogs = Project.objects.filter(category='Blog')
 
-        return render(request, self.template_name,  {'recent_posts': posts_list, 'projects': projects, 'tutorials': tutorials, 'blogs': blogs, })
+        return render(request, self.template_name,  {'message_form': self.form_class, 'recent_posts': posts_list, 'projects': projects, 'tutorials': tutorials, 'blogs': blogs, })
 
     def post(self, request, *args, **kwargs):
+
+        #Get response content
+        try:
+            posts_list = Project.objects.filter(status="Published").order_by('-created_date')
+        except Project.DoesNotExist:
+
+            messages.warning(request, 'Sorry, system our of reach.')
+
+            return render(request, self.template_name,  { 'message_form': self.form_class, 'recent_posts': {}, 'projects': {}, 'tutorials': {}, 'blogs': {}, })
+
+        projects = Project.objects.filter(category='Project')
+        tutorials = Project.objects.filter(category='Tutorial')
+        blogs = Project.objects.filter(category='Blog')
+
+        #Make post
         form = self.form_class(request.POST)
         if form.is_valid():
 
@@ -45,7 +60,6 @@ class Index(View):
                 user = User.objects.get(email=email)
             except User.DoesNotExist:
                 user = User(
-                    username=name,
                     email=email
                     )
                 user.save()
@@ -55,6 +69,7 @@ class Index(View):
                 profile = Profile.objects.get(user=user)
             except Profile.DoesNotExist:
                 profile = Profile(
+                    profile_name=name,
                     user=user,
                     subscribed=True
                     )
@@ -81,14 +96,76 @@ class Index(View):
 
         messages.error(request, 'Error posting message. Please check that you have filled all fields correctly.')
 
-        return render(request, self.template_name, {'message_form': form})
+        return render(request, self.template_name, {'message_form': form, 'recent_posts': posts_list, 'projects': projects, 'tutorials': tutorials, 'blogs': blogs, })
 
 
-
-class Subscribe(View):
-    form_class = SubscribeForm
+class UnSubscribe(View):
 
     def post(self, request, *args, **kwargs):
+
+        user = request.POST.get(user)
+
+        profile = Profile.objects.get(user=user)
+
+        profile.unsubscribe()
+
+        messages.success(request, 'Successfully Unsubsribed I.')
+        return HttpResponseNotModified()
+
+
+
+
+
+class Blogs(View):
+    blogs_template = 'blogs.html'
+    form_class = SubscribeForm
+
+    def get(self, request, *args, **kwargs):
+
+        try:
+            posts_list = Project.objects.filter(status="Published").order_by('-created_date')
+        except Project.DoesNotExist:
+
+            messages.warning(request, 'Sorry, system out of reach.')
+
+            return render(request, self.blogs_template,  {'subscribe_form': self.form_class, 'posts': {}, 'recent_posts': {} })
+
+        paginator = Paginator(posts_list, 5)
+
+        page = request.GET.get('page')
+        try:
+            posts = paginator.page(page)
+        except PageNotAnInteger:
+            posts = paginator.page(1)
+        except EmptyPage:
+            posts = paginator.page(paginator.num_pages)
+
+        return render(request, self.blogs_template,  {'subscribe_form': self.form_class, 'posts': posts, 'recent_posts': posts })
+
+
+
+    def post(self, request, *args, **kwargs):
+
+
+        try:
+            posts_list = Project.objects.filter(status="Published").order_by('-created_date')
+        except Project.DoesNotExist:
+
+            messages.warning(request, 'Sorry, system out of reach.')
+
+            return render(request, self.blogs_template,  {'subscribe_form': self.form_class, 'posts': {}, 'recent_posts': {} })
+
+        paginator = Paginator(posts_list, 5)
+
+        page = request.GET.get('page')
+        try:
+            posts = paginator.page(page)
+        except PageNotAnInteger:
+            posts = paginator.page(1)
+        except EmptyPage:
+            posts = paginator.page(paginator.num_pages)
+
+
         form = self.form_class(request.POST)
         if form.is_valid():
 
@@ -101,7 +178,6 @@ class Subscribe(View):
                 user = User.objects.get(email=email)
             except User.DoesNotExist:
                 user = User(
-                    username=name,
                     email=email
                     )
                 user.save()
@@ -111,65 +187,21 @@ class Subscribe(View):
                 profile = Profile.objects.get(user=user)
             except Profile.DoesNotExist:
                 profile = Profile(
-                    user=user,
+                    profile_name=name,
                     subscribed=True,
                     website=website
                     )
                 profile.save()
 
             #Subscribe using the already existing profile instance
-            profile.subscribe(Profile)
+            profile.subscribe()
 
             messages.success(request, 'Subscription successful! I shall be happy to notify you once a new post is made.')
-            return HttpResponseNotModified()
+            return HttpResponseRedirect('/blogs/')
 
         messages.error(request, 'Error subscribing. Please check that you have filled all fields correctly.')
 
-        return HttpResponseNotModified()
-
-
-
-class UnSubscribe(View):
-
-    def post(self, request, *args, **kwargs):
-
-        user = request.POST.get(user)
-
-        profile = Profile.objects.get(user=user)
-
-        profile.unsubscribe(Profile)
-
-        messages.success(request, 'Successfully Unsubsribed I.')
-        return HttpResponseNotModified()
-
-
-
-
-
-class Blogs(View):
-    blogs_template = 'blogs.html'
-
-    def get(self, request, *args, **kwargs):
-
-        try:
-            posts_list = Project.objects.filter(status="Published").order_by('-created_date')
-        except Project.DoesNotExist:
-
-            messages.warning(request, 'Sorry, system out of reach.')
-
-            return render(request, self.blogs_template,  {'posts': {}, 'recent_posts': {} })
-
-        paginator = Paginator(posts_list, 5)
-
-        page = request.GET.get('page')
-        try:
-            posts = paginator.page(page)
-        except PageNotAnInteger:
-            posts = paginator.page(1)
-        except EmptyPage:
-            posts = paginator.page(paginator.num_pages)
-
-        return render(request, self.blogs_template,  {'posts': posts, 'recent_posts': posts })
+        return render(request, self.blogs_template,  {'subscribe_form': form, 'posts': posts, 'recent_posts': posts })
 
 
 

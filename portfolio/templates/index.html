@@ -271,16 +271,16 @@
 			    <form method="post" action="#">
 			        {% csrf_token %}
 					<div class="row uniform">
-						<div class="6u 12u(xsmall)"> <div class="6u 12u(xsmall)">{{ message_form.name.errors }}</div><input type="text" name="name" id="name" placeholder="Name" /></div>
-						<div class="6u 12u(xsmall)"><div class="6u 12u(xsmall)">{{ message_form.email.errors }}</div><input type="email" name="email" id="email" placeholder="Email" /></div>
+						<div class="6u 12u(xsmall)"> <div class="6u 12u(xsmall)">{{ message_form.name.errors }}</div>{{ message_form.name }}</div>
+						<div class="6u 12u(xsmall)"><div class="6u 12u(xsmall)">{{ message_form.email.errors }}</div>{{ message_form.email }}</div>
 					</div>
 					<div class="row uniform">
 						{% if message_form.subject.errors %} <div class="12u">{{ message_form.subject.errors }}</div> {% endif %}
-						<div class="12u"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+						<div class="12u">{{ message_form.subject }}</div>
 					</div>
 					<div class="row uniform">
 						{% if message_form.message.errors %} <div class="12u">{{ message_form.message.errors }}</div> {% endif %}
-						<div class="12u"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+						<div class="12u">{{ message_form.message }}</textarea></div>
 					</div>
 					<div class="row uniform">
 						<div class="12u">

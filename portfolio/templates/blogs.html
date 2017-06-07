@@ -10,7 +10,7 @@
 
 
 <!-- =========================
-    ABOUT ME
+    LATEST BLOGS
 ============================== -->
 
 <div class="row highlight-container" id="blogs-page">
@@ -90,6 +90,44 @@
     </div>
 
 </div>
+
+
+
+
+<!-- =========================
+    SUBSCRIBE TO BLOG
+============================== -->
+
+<div class="row highlight-container" id="subscribe">
+    <div class=" col-md-12 col-sm-10">
+        <div class="">
+			<header class="major">
+			    <h2></h2>
+				<p class="text-black">Subscribe to blog:</p>
+			</header>
+			<div class="">
+			    <form method="post" action="#">
+			        {% csrf_token %}
+					<div class="row uniform">
+						<div class="4u 12u(xsmall)"> <div class="12u 12u(xsmall)">{{ subscribe_form.name.errors }}</div>{{ subscribe_form.name }}</div>
+						<div class="4u 12u(xsmall)"><div class="12u 12u(xsmall)">{{ subscribe_form.email.errors }}</div>{{ subscribe_form.email }}</div>
+						<div class="4u 12u(xsmall)"><div class="12u 12u(xsmall)">{{ subscribe_form.website.errors }}</div>{{ subscribe_form.website }}</div>
+					</div>
+					<div class="row uniform">
+						<div class="12u">
+							<ul class="actions">
+								<li><input type="submit" class="special" value="Subscribe" /></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+    </div>
+</div>
+
+
+
 
 
 {% endblock %}
