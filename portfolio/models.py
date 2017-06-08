@@ -8,7 +8,7 @@ from django.utils import timezone
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, related_name='profile_user')
+    email = models.CharField(max_length=200, null=True)
     profile_name = models.CharField(max_length=200, null=True)
     subscribed = models.BooleanField(default=True)
     website = models.URLField(max_length=200, blank=True, null=True)
@@ -27,7 +27,7 @@ class Profile(models.Model):
         return self.user
 
 class Message(models.Model):
-    user = models.ForeignKey(User, related_name='message_user', on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(Profile, related_name='message_profile', on_delete=models.CASCADE, null=True)
     email = models.CharField(max_length=200)
     subject = models.TextField()
     message = models.TextField()

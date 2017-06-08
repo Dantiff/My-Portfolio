@@ -55,29 +55,21 @@ class Index(View):
             subject=form.cleaned_data['subject'],
             message=form.cleaned_data['message'],
 
-            #If user instance doesnotexist, create new
-            try:
-                user = User.objects.get(email=email)
-            except User.DoesNotExist:
-                user = User(
-                    email=email
-                    )
-                user.save()
 
             #If profile instance doesnotexist, create new
             try:
-                profile = Profile.objects.get(user=user)
+                profile = Profile.objects.get(email=email)
             except Profile.DoesNotExist:
                 profile = Profile(
                     profile_name=name,
-                    user=user,
-                    subscribed=True
+                    subscribed=True,
+                    email=email
                     )
                 profile.save()
 
             #Save the message instance
             message = Message(
-                user=user,
+                user=profile,
                 subject=subject,
                 message=message,
                 )
@@ -173,23 +165,15 @@ class Blogs(View):
             email=form.cleaned_data['email'],
             website=form.cleaned_data['website'],
 
-            #If user instance doesnotexist, create new
-            try:
-                user = User.objects.get(email=email)
-            except User.DoesNotExist:
-                user = User(
-                    email=email
-                    )
-                user.save()
-
             #If profile instance doesnotexist, create new
             try:
-                profile = Profile.objects.get(user=user)
+                profile = Profile.objects.get(email=email)
             except Profile.DoesNotExist:
                 profile = Profile(
                     profile_name=name,
                     subscribed=True,
-                    website=website
+                    website=website,
+                    email=email
                     )
                 profile.save()
 
